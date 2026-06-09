@@ -104,6 +104,7 @@ var LOC_KEY = 'bod_myreqs_emery';
 var WORKER_URL = 'https://bod-requests.schneidjii.workers.dev';
 var DATA_URL = 'https://raw.githubusercontent.com/schneidjii/bank-of-dad/main/bod_data.json';
 var REQ_RAW = 'https://raw.githubusercontent.com/schneidjii/bank-of-dad/main/bod_requests.json';
+var REQ_API_URL = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
 var isDeposit = true;
 
 function fmt(n){return(n<0?'-':'')+'$'+Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
@@ -187,9 +188,12 @@ function cancelRequest(id){
 }
 
 function getAllRequests(cb){
-  fetch(REQ_RAW+'?t='+Date.now())
+  // Use API endpoint to bypass CDN cache - no token needed for public repo reads
+  fetch(REQ_API_URL, {headers:{'Accept':'application/vnd.github.v3+json'}})
     .then(function(r){if(!r.ok)throw new Error();return r.json();})
-    .then(function(data){
+    .then(function(meta){
+      if(!meta.content) throw new Error('no content');
+      var data=JSON.parse(atob(meta.content.replace(/\n/g,'')));
       var ghReqs=(data.requests||[]).filter(function(r){return r.kid===KID;});
       var local=getLocalReqs();
       var ghIds=ghReqs.map(function(r){return r.id;});
