@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank of Dad — Schneider</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1a2e2e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bank of Dad">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0ede6; color: #1a2a2a; font-size: 14px; }
+#hdr { background: #1a2e2e; padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid #b8962e; }
+#hdr img { width: 38px; height: 50px; object-fit: contain; }
+#hdr h1 { font-size: 16px; font-weight: 700; color: #e8d48a; }
+#hdr p { font-size: 10px; color: #7a9a9a; text-transform: uppercase; letter-spacing: .08em; }
+#hdr-date { margin-left: auto; font-size: 11px; color: #7a9a9a; white-space: nowrap; }
+#sync-status { font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; white-space: nowrap; }
+#sync-status.ok { background: #dcfce7; color: #16a34a; }
+#sync-status.saving { background: #fef3c7; color: #92400e; }
+#sync-status.err { background: #fee2e2; color: #dc2626; }
+#tabs { background: #1a2e2e; border-bottom: 1px solid #2e4a4a; padding: 0 12px; display: flex; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+#tabs button { padding: 10px 11px; border: none; background: none; cursor: pointer; font-size: 12px; font-weight: 500; color: #7a9a9a; border-bottom: 2px solid transparent; white-space: nowrap; }
+#tabs button.active { color: #e8d48a; border-bottom-color: #b8962e; }
+#content { padding: 14px; max-width: 900px; margin: 0 auto; }
+.bal-card { background: linear-gradient(135deg,#1a2e2e,#1e3838); border-radius: 10px; padding: 14px 18px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #2e4a4a; }
+.bal-name { font-size: 16px; font-weight: 700; color: #e8d48a; }
+.bal-amt { font-size: 28px; font-weight: 700; }
+.pos { color: #4ade80; } .neg { color: #f87171; }
+.pos-t { color: #16a34a; } .neg-t { color: #dc2626; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 10px; margin-bottom: 14px; }
+.dash-card { background: #fff; border: 1px solid #ddd8ce; border-radius: 10px; padding: 12px 14px; cursor: pointer; }
+.dash-card:hover { border-color: #b8962e; }
+.dc-name { font-size: 11px; color: #7a6a3a; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 3px; }
+.dc-bal { font-size: 17px; font-weight: 700; }
+.total-bar { background: #1a2e2e; border-radius: 10px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+.total-bar span { font-size: 12px; color: #7a9a9a; }
+.total-bar strong { font-size: 17px; font-weight: 700; color: #e8d48a; }
+.form-box { background: #fff; border: 1px solid #ddd8ce; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; }
+.form-box h3 { font-size: 10px; font-weight: 700; color: #b8962e; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.form-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.form-row input { padding: 8px 10px; border: 1px solid #ddd8ce; border-radius: 6px; font-size: 13px; background: #faf8f4; flex: 1; min-width: 90px; }
+.form-row input:focus { outline: none; border-color: #b8962e; }
+.btn-add { padding: 8px 14px; background: #1a2e2e; color: #e8d48a; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; white-space: nowrap; width: 100%; margin-top: 6px; }
+.hint { font-size: 11px; color: #aaa; margin-top: 6px; }
+.sec-label { font-size: 10px; font-weight: 700; color: #b8962e; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.tx-list { background: #fff; border-radius: 10px; border: 1px solid #ddd8ce; overflow: hidden; }
+.tx-card { padding: 10px 12px; border-bottom: 1px solid #f0ece4; }
+.tx-card:last-child { border-bottom: none; }
+.tx-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.tx-desc { font-size: 13px; color: #1a2a2a; flex: 1; word-break: break-word; }
+.tx-amt { font-size: 14px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+.tx-bot { display: flex; justify-content: space-between; align-items: center; }
+.tx-meta { font-size: 10px; color: #aaa; line-height: 1.5; }
+.tx-right { display: flex; align-items: center; gap: 10px; }
+.tx-bal { font-size: 11px; color: #999; }
+.tx-del { background: none; border: none; cursor: pointer; color: #ccc; font-size: 14px; padding: 2px 4px; }
+.tx-del:hover { color: #dc2626; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid #ddd8ce; }
+th { text-align: left; font-size: 10px; font-weight: 700; color: #7a6a3a; padding: 9px 10px; border-bottom: 1px solid #ece8de; background: #faf8f4; text-transform: uppercase; letter-spacing: .04em; }
+td { padding: 8px 10px; border-bottom: 1px solid #f0ece4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 160px; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #faf8f4; }
+.btn-row { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.btn { padding: 7px 12px; background: #fff; color: #1a2e2e; border: 1px solid #ddd8ce; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+.btn:hover { border-color: #b8962e; color: #b8962e; }
+.del-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 13px; padding: 2px 5px; }
+.del-btn:hover { color: #dc2626; }
+.empty { text-align: center; padding: 28px; color: #aaa; background: #fff; border-radius: 10px; border: 1px solid #ddd8ce; font-size: 13px; }
+.badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; text-transform: uppercase; margin-right: 4px; }
+.bc { background: #dcfce7; color: #16a34a; }
+.bd { background: #fee2e2; color: #dc2626; }
+.br { background: #e0e7ff; color: #3730a3; }
+.import-box { background: #fff; border: 1px solid #ddd8ce; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; display: none; }
+.import-box textarea { width: 100%; padding: 8px; border: 1px solid #ddd8ce; border-radius: 6px; font-size: 12px; font-family: monospace; resize: vertical; background: #faf8f4; }
+.setup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 100; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.setup-box { background: #fff; border-radius: 12px; padding: 24px; max-width: 420px; width: 100%; }
+.setup-box h2 { font-size: 16px; font-weight: 700; color: #1a2e2e; margin-bottom: 8px; }
+.setup-box p { font-size: 13px; color: #666; margin-bottom: 16px; line-height: 1.5; }
+.setup-box ol { font-size: 13px; color: #444; margin-bottom: 16px; padding-left: 18px; line-height: 2; }
+.setup-box input { width: 100%; padding: 10px 12px; border: 1px solid #ddd8ce; border-radius: 6px; font-size: 13px; font-family: monospace; margin-bottom: 10px; }
+.setup-box input:focus { outline: none; border-color: #b8962e; }
+.setup-save { width: 100%; padding: 10px; background: #1a2e2e; color: #e8d48a; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 700; }
+.setup-skip { width: 100%; padding: 8px; background: none; color: #aaa; border: none; cursor: pointer; font-size: 12px; margin-top: 6px; }
+.watermark { position: fixed; bottom: 20px; right: 20px; width: 140px; opacity: .05; pointer-events: none; z-index: 0; }
+.tx-edit-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 13px; padding: 2px 4px; }
+.tx-edit-btn:hover { color: #b8962e; }
+.tx-edit-form { background: #faf8f4; border-radius: 8px; padding: 10px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+.tx-edit-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.tx-edit-row input { padding: 7px 9px; border: 1px solid #ddd8ce; border-radius: 6px; font-size: 13px; background: #fff; flex: 1; min-width: 80px; }
+.tx-edit-row input:focus { outline: none; border-color: #b8962e; }
+.tx-edit-btns { display: flex; gap: 6px; }
+.tx-save-btn { padding: 6px 14px; background: #1a2e2e; color: #e8d48a; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; }
+.tx-cancel-btn { padding: 6px 12px; background: #fff; color: #666; border: 1px solid #ddd8ce; border-radius: 6px; cursor: pointer; font-size: 12px; }
+.badge-edit { background: #fef3c7; color: #92400e; }
+.badge-request { background: #fef3c7; color: #92400e; }
+.badge-reviewing { background: #dbeafe; color: #1d4ed8; }
+.badge-approved { background: #dcfce7; color: #16a34a; }
+.badge-denied { background: #fee2e2; color: #dc2626; }
+.badge-cancelled { background: #f3f4f6; color: #6b7280; }
+.pending-banner { background: #b8962e; color: #1a2e2e; padding: 10px 14px; border-radius: 10px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+.pending-banner-text { font-size: 13px; font-weight: 700; }
+.pending-badge { background: #1a2e2e; color: #e8d48a; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.req-card { padding: 10px 12px; border-bottom: 1px solid #f0ece4; opacity: 1; }
+.req-card:last-child { border-bottom: none; }
+.req-card.greyed { opacity: 0.55; }
+.req-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.req-desc { font-size: 13px; color: #1a2a2a; flex: 1; word-break: break-word; }
+.req-amt { font-size: 14px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+.req-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px; }
+.req-meta { font-size: 10px; color: #aaa; line-height: 1.5; }
+.req-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.req-approve { padding: 5px 12px; background: #1a2e2e; color: #e8d48a; border: none; border-radius: 5px; cursor: pointer; font-size: 11px; font-weight: 600; }
+.req-deny { padding: 5px 12px; background: #fff; color: #dc2626; border: 1px solid #dc2626; border-radius: 5px; cursor: pointer; font-size: 11px; font-weight: 600; }
+.req-reason { font-size: 11px; color: #dc2626; margin-top: 4px; font-style: italic; }
+.req-section { background: #fff; border-radius: 10px; border: 1px solid #ddd8ce; overflow: hidden; margin-bottom: 14px; }
+.req-section-title { font-size: 10px; font-weight: 700; color: #b8962e; text-transform: uppercase; letter-spacing: .08em; padding: 8px 12px; background: #faf8f4; border-bottom: 1px solid #ece8de; }
+.notif-bar { background: #1a2e2e; border-left: 4px solid #b8962e; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; font-size: 12px; color: #e8d48a; }
+.version-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.version-box { background: #1a2e2e; border-radius: 14px; padding: 24px; max-width: 380px; width: 100%; border: 2px solid #b8962e; text-align: center; }
+.version-box img { width: 60px; height: 78px; object-fit: contain; margin-bottom: 12px; }
+.version-box h2 { font-size: 20px; font-weight: 700; color: #e8d48a; margin-bottom: 4px; }
+.version-box .ver-num { font-size: 12px; color: #b8962e; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 16px; }
+.version-box ul { text-align: left; list-style: none; padding: 0; margin-bottom: 20px; }
+.version-box ul li { font-size: 13px; color: #e0d9cc; padding: 6px 0; border-bottom: 1px solid #2e4a4a; display: flex; gap: 8px; align-items: flex-start; }
+.version-box ul li:last-child { border-bottom: none; }
+.version-box ul li span { font-size: 16px; flex-shrink: 0; }
+.version-got-it { width: 100%; padding: 12px; background: #b8962e; color: #1a2e2e; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 700; }
+.req-poll-btn { padding: 7px 12px; background: #b8962e; color: #1a2e2e; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="hdr">
+  <img src="crest.png" alt="Schneider">
+  <div><h1>Bank of Dad</h1><p>Schneider Family</p></div>
+  <span id="sync-status" class="ok">synced</span>
+  <div id="hdr-date"></div>
+</div>
+<div id="tabs"></div>
+<img class="watermark" src="crest.png" alt="">
+<div id="content"></div>
+<div id="setup-overlay" class="setup-overlay" style="display:none">
+  <div class="setup-box">
+    <h2>&#127974; GitHub Sync Setup</h2>
+    <p>To keep the kids' read-only pages updated automatically, paste a GitHub Personal Access Token below. Your token is stored only on this device.</p>
+    <ol>
+      <li>Go to <strong>github.com</strong> → Settings</li>
+      <li>Developer settings → Personal access tokens → Tokens (classic)</li>
+      <li>Generate new token → check <strong>repo</strong> scope</li>
+      <li>Copy and paste it below</li>
+    </ol>
+    <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+    <button class="setup-save" id="token-save">Save &amp; Connect</button>
+    <button class="setup-skip" id="token-skip">Skip for now (no auto-sync)</button>
+  </div>
+</div>
+
+<script>
+var APP_VERSION = '2.0';
+var GITHUB_USER = 'schneidjii';
+var GITHUB_REPO = 'bank-of-dad';
+var GITHUB_BRANCH = 'main';
+var DATA_FILE = 'bod_data.json';
+var API_BASE = 'https://api.github.com/repos/' + GITHUB_USER + '/' + GITHUB_REPO + '/contents/' + DATA_FILE;
+var KIDS = ['Donald John','Gavin','Kenleigh','Emery','Elaina','Kelsey'];
+var SK = 'bod_tx_v8';
+var LK = 'bod_log_v8';
+var TK = 'bod_gh_token';
+var TX = [], LOG = [], REQ = [], currentTab = 'dashboard';
+var ghSha = null; // GitHub file SHA for updates
+var SEED = [
+  ['Donald John','Beginning balance',58,'2021-01-01'],
+  ['Donald John','Report Card Reward',100,'2021-06-01'],
+  ['Donald John','End of School Reward',50,'2021-06-01'],
+  ['Donald John','Minecraft Ninja Mashup',-10,'2021-06-15'],
+  ['Donald John','space pioneer switch',-2,'2021-07-01'],
+  ['Donald John','left door open',-1,'2021-07-10'],
+  ['Donald John','left door open',-1,'2021-07-15'],
+  ['Donald John',"didn't put a liner in",-1,'2021-07-20'],
+  ['Donald John','left door open',-1,'2021-07-25'],
+  ['Donald John','Minecraft Dungeons',-20,'2021-08-01'],
+  ['Donald John','Robux',-5,'2021-09-01'],
+  ['Donald John','Amoung Us (Switch)',-5,'2021-10-01'],
+  ['Donald John','FNAF Help Wanted - Switch',-30,'2021-11-01'],
+  ['Donald John','Fortnite Battle Pass',-8,'2021-12-01'],
+  ['Donald John','new FNAF game (phone)',-5,'2022-01-01'],
+  ['Donald John','800 Robux for Lion',-9,'2022-02-01'],
+  ['Donald John','4 failed spelling tests',-40,'2022-03-01'],
+  ['Donald John','punishment*',-20,'2022-04-01'],
+  ['Donald John','Deposit Cash',13.15,'2022-05-01'],
+  ['Donald John',"five nights at Freddy's security breach",-40,'2022-06-01'],
+  ['Donald John','Kelsey Present',40,'2022-07-01'],
+  ['Donald John','Population One (Quest 2)',-30,'2022-08-01'],
+  ['Donald John','Robux',-11,'2022-09-01'],
+  ['Donald John','transaction',-11,'2022-05-25'],
+  ['Donald John','transaction',10,'2022-05-25'],
+  ['Donald John','transaction',-12.51,'2022-05-26'],
+  ['Donald John','transaction',10,'2022-06-05'],
+  ['Donald John','transaction',12,'2022-06-05'],
+  ['Donald John','transaction',20,'2022-06-21'],
+  ['Donald John','transaction',12,'2022-06-21'],
+  ['Donald John','transaction',10,'2022-06-25'],
+  ['Donald John','transaction',4,'2022-06-30'],
+  ['Donald John','transaction',5,'2022-07-03'],
+  ['Donald John','transaction',-15,'2022-07-09'],
+  ['Donald John','transaction',-5,'2022-07-14'],
+  ['Donald John','transaction',-1,'2022-07-19'],
+  ['Donald John','transaction',-10,'2022-08-03'],
+  ['Donald John','transaction',-5,'2022-08-08'],
+  ['Donald John','transaction',31.79,'2022-08-28'],
+  ['Donald John','transaction',-5,'2022-08-14'],
+  ['Donald John','transaction',1,'2022-09-05'],
+  ['Donald John','transaction',5,'2022-09-12'],
+  ['Donald John','transaction',2,'2022-09-13'],
+  ['Donald John','transaction',2,'2022-09-20'],
+  ['Donald John','transaction',1,'2022-09-22'],
+  ['Donald John','transaction',2,'2022-09-26'],
+  ['Donald John','transaction',1,'2022-09-27'],
+  ['Donald John','transaction',-2,'2022-09-27'],
+  ['Donald John','transaction',-2,'2022-09-27'],
+  ['Donald John','transaction',1,'2022-09-27'],
+  ['Donald John','transaction',-20,'2022-10-01'],
+  ['Donald John','transaction',-4,'2022-10-02'],
+  ['Donald John','transaction',-1,'2022-10-02'],
+  ['Donald John','transaction',1,'2022-10-02'],
+  ['Donald John','Gavin bat dragon bet / KLS smartwatch payoff',-3,'2022-10-07'],
+  ['Donald John','transaction',-10,'2022-10-14'],
+  ['Donald John','transaction',2,'2022-10-25'],
+  ['Donald John','transaction',10,'2022-11-03'],
+  ['Donald John','transaction',-1,'2022-11-13'],
+  ['Donald John','transaction',-1,'2022-11-13'],
+  ['Donald John','transaction',5,'2023-01-17'],
+  ['Donald John','transaction',-1,'2023-01-21'],
+  ['Donald John','transaction',21.5,'2023-01-21'],
+  ['Donald John','transaction',-65,'2023-03-12'],
+  ['Donald John','transaction',5,'2023-03-12'],
+  ['Donald John','transaction',2,'2023-03-12'],
+  ['Donald John',"Jen's BDay bet",52,'2023-03-19'],
+  ['Donald John','transaction',2,'2023-04-10'],
+  ['Donald John','FNAF',-15,'2023-04-11'],
+  ['Donald John','Customized Xbox controller',-80.54,'2023-05-08'],
+  ['Donald John','John giving adopt me pets to Kenly',15,'2023-05-08'],
+  ['Donald John','transaction',12.25,'2023-06-13'],
+  ['Donald John','transaction',10,'2023-07-03'],
+  ['Donald John','transaction',30,'2023-07-12'],
+  ['Donald John','transaction',-2,'2023-08-03'],
+  ['Donald John','transaction',-2,'2023-08-03'],
+  ['Donald John','transaction',40,'2023-08-03'],
+  ['Donald John','transaction',40,'2023-08-20'],
+  ['Donald John','transaction',40,'2023-08-27'],
+  ['Donald John','transaction',20,'2023-08-28'],
+  ['Donald John','transaction',5,'2023-09-11'],
+  ['Donald John','transaction',5,'2023-09-16'],
+  ['Donald John','transaction',40,'2023-09-16'],
+  ['Donald John','transaction',5,'2024-03-25'],
+  ['Donald John','transaction',80,'2024-04-21'],
+  ['Donald John','transaction',40,'2024-04-21'],
+  ['Donald John','transaction',20,'2024-07-02'],
+  ['Donald John','farm',45,'2024-06-04'],
+  ['Donald John','lawn',40,'2024-06-04'],
+  ['Donald John','transaction',50,'2024-07-11'],
+  ['Donald John','transaction',20,'2024-08-01'],
+  ['Donald John','transaction',40,'2024-10-12'],
+  ['Donald John','transaction',250,'2024-08-24'],
+  ['Donald John','transaction',60,'2024-10-06'],
+  ['Donald John','Farm cut July 4',75,'2024-12-11'],
+  ['Donald John','wood',30,'2025-02-01'],
+  ['Donald John','transaction',174.36,'2025-02-06'],
+  ['Donald John','transaction',5,'2025-02-08'],
+  ['Donald John','transaction',5,'2025-03-04'],
+  ['Donald John','transaction',-1150,'2025-03-04'],
+  ['Donald John','transaction',-4,'2025-03-04'],
+  ['Donald John','transaction',80,'2025-03-05'],
+  ['Donald John','transaction',10,'2025-03-05'],
+  ['Donald John','transaction',-10,'2025-09-06'],
+  ['Donald John','transaction',-5,'2025-08-19'],
+  ['Donald John','transaction',-1,'2025-11-06'],
+  ['Donald John','transaction',-39.99,'2025-11-21'],
+  ['Donald John','transaction',-20,'2025-12-13'],
+  ['Donald John','transaction',20,'2026-01-24'],
+  ['Donald John','transaction',25,'2026-02-22'],
+  ['Gavin','Beginning balance',110,'2021-01-01'],
+  ['Gavin','Report Card Reward',125,'2021-06-01'],
+  ['Gavin','End of School Reward',50,'2021-06-01'],
+  ['Gavin','Minecraft Ninja Mashup',-10,'2021-06-15'],
+  ['Gavin','Super Mario Maker 2',-60,'2021-07-01'],
+  ['Gavin','left door open',-1,'2021-07-15'],
+  ['Gavin','Xbox Gamertag Change',-10,'2021-08-01'],
+  ['Gavin','Minecraft Dungeons',-20,'2021-09-01'],
+  ['Gavin','Amoung Us (Switch)',-5,'2021-10-01'],
+  ['Gavin','new FNAF game (phone)',-5,'2022-01-01'],
+  ['Gavin','Gavin purchased Fortnite skin for Donald John',-16,'2021-07-25'],
+  ['Gavin','Frozen Legends pack for fortnite',-20,'2022-03-01'],
+  ['Gavin','Deposit Cash',30,'2022-04-01'],
+  ['Gavin','Books Read',4,'2022-05-01'],
+  ['Gavin','Kelsey Present',40,'2022-06-01'],
+  ['Gavin','Population One (Quest 2)',-30,'2022-07-01'],
+  ['Gavin','Ultimate Custom Night (mobile game)',-3,'2022-08-01'],
+  ['Gavin','Easter Egg Hunt',6,'2022-04-17'],
+  ['Gavin','transaction',15,'2022-05-25'],
+  ['Gavin','transaction',0.75,'2022-05-26'],
+  ['Gavin','transaction',-1,'2022-06-05'],
+  ['Gavin','transaction',1.5,'2022-06-05'],
+  ['Gavin','transaction',10,'2022-06-21'],
+  ['Gavin','transaction',-4,'2022-06-30'],
+  ['Gavin','transaction',-1,'2022-07-03'],
+  ['Gavin','transaction',-1,'2022-07-08'],
+  ['Gavin','transaction',-5,'2022-07-17'],
+  ['Gavin','transaction',-1,'2022-07-17'],
+  ['Gavin','transaction',-5,'2022-07-19'],
+  ['Gavin','transaction',-5,'2022-08-03'],
+  ['Gavin','transaction',-5,'2022-08-08'],
+  ['Gavin','transaction',-5,'2022-08-14'],
+  ['Gavin','transaction',1.25,'2022-08-29'],
+  ['Gavin','transaction',-1,'2022-09-05'],
+  ['Gavin','transaction',-5,'2022-09-12'],
+  ['Gavin','transaction',-2,'2022-09-13'],
+  ['Gavin','transaction',-2,'2022-09-20'],
+  ['Gavin','transaction',-1,'2022-09-22'],
+  ['Gavin','transaction',-2,'2022-09-23'],
+  ['Gavin','transaction',-2,'2022-09-26'],
+  ['Gavin','transaction',-3,'2022-09-23'],
+  ['Gavin','transaction',-1,'2022-09-27'],
+  ['Gavin','transaction',2,'2022-09-27'],
+  ['Gavin','transaction',2,'2022-09-27'],
+  ['Gavin','transaction',-2,'2022-09-27'],
+  ['Gavin','transaction',-1,'2022-09-27'],
+  ['Gavin','transaction',-2,'2022-09-27'],
+  ['Gavin','transaction',-20,'2022-10-01'],
+  ['Gavin','transaction',4,'2022-10-02'],
+  ['Gavin','transaction',1,'2022-10-02'],
+  ['Gavin','transaction',-1,'2022-10-02'],
+  ['Gavin','Bat dragon bet / KLS smartwatch / Gavin cube payoff',-20,'2022-10-07'],
+  ['Gavin','transaction',20,'2022-11-13'],
+  ['Gavin','transaction',-2,'2022-11-13'],
+  ['Gavin','transaction',-5,'2023-01-17'],
+  ['Gavin','transaction',-3,'2023-01-17'],
+  ['Gavin','transaction',-21.5,'2023-01-21'],
+  ['Gavin','transaction',-1,'2023-01-21'],
+  ['Gavin','transaction',-5,'2023-03-12'],
+  ['Gavin','transaction',40,'2023-07-03'],
+  ['Gavin','transaction',-4,'2023-05-28'],
+  ['Gavin','transaction',-13.77,'2023-06-05'],
+  ['Gavin','transaction',47.22,'2023-06-06'],
+  ['Gavin','transaction',23,'2023-06-13'],
+  ['Gavin','transaction',-1,'2023-06-21'],
+  ['Gavin','transaction',-8.47,'2023-07-01'],
+  ['Gavin','transaction',-1,'2023-07-02'],
+  ['Gavin','transaction',-1,'2023-07-08'],
+  ['Gavin','transaction',-3,'2023-07-12'],
+  ['Gavin','transaction',-2,'2023-08-03'],
+  ['Gavin','transaction',1,'2023-08-03'],
+  ['Gavin','transaction',2,'2023-08-03'],
+  ['Gavin','transaction',6.25,'2023-08-20'],
+  ['Gavin','transaction',-71,'2023-09-11'],
+  ['Gavin','transaction',-5,'2024-03-25'],
+  ['Gavin','transaction',-5,'2023-09-16'],
+  ['Gavin','transaction',-5,'2023-09-16'],
+  ['Gavin','transaction',-5,'2023-09-16'],
+  ['Gavin','transaction',-5,'2023-09-16'],
+  ['Gavin','transaction',-5,'2023-09-16'],
+  ['Gavin','transaction',-4,'2023-09-16'],
+  ['Gavin','transaction',-5,'2024-01-30'],
+  ['Gavin','transaction',-5,'2024-01-30'],
+  ['Gavin','transaction',-5,'2024-01-30'],
+  ['Gavin','transaction',-5,'2024-04-21'],
+  ['Gavin','transaction',-23,'2024-07-02'],
+  ['Gavin','transaction',40,'2024-08-01'],
+  ['Gavin','transaction',-25,'2024-10-12'],
+  ['Gavin','transaction',-9,'2024-08-24'],
+  ['Gavin','transaction',-10,'2024-10-06'],
+  ['Gavin','wood',20,'2025-02-01'],
+  ['Gavin','transaction',10,'2025-02-06'],
+  ['Gavin','transaction',10,'2025-02-08'],
+  ['Gavin','transaction',0.77,'2025-03-04'],
+  ['Gavin','transaction',50,'2025-03-04'],
+  ['Gavin','transaction',-5,'2025-03-04'],
+  ['Gavin','transaction',-5,'2025-03-05'],
+  ['Gavin','transaction',-5,'2025-03-05'],
+  ['Gavin','transaction',-4,'2025-09-06'],
+  ['Gavin','transaction',-10,'2025-08-19'],
+  ['Gavin','transaction',-20,'2025-11-06'],
+  ['Gavin','transaction',-18.64,'2025-11-21'],
+  ['Gavin','transaction',-16,'2025-12-13'],
+  ['Gavin','transaction',-12,'2026-01-24'],
+  ['Gavin','transaction',-40,'2026-02-22'],
+  ['Gavin','transaction',25,'2026-04-13'],
+  ['Gavin','transaction',25,'2026-04-13'],
+  ['Gavin','transaction',-50,'2026-04-13'],
+  ['Gavin','transaction',25,'2026-05-16'],
+  ['Kenleigh','Beginning balance',10,'2021-01-01'],
+  ['Kenleigh','Report Card Reward',6,'2021-06-01'],
+  ['Kenleigh','End of School Reward',7,'2021-06-01'],
+  ['Kenleigh','Minecraft Ninja Mashup',2,'2021-06-15'],
+  ['Kenleigh','Super Mario Maker 2',1,'2021-07-01'],
+  ['Kenleigh','space pioneer switch',1,'2021-07-10'],
+  ['Kenleigh','Cash Deposit',7.71,'2022-04-10'],
+  ['Kenleigh','Easter Egg Hunt',1,'2022-04-17'],
+  ['Kenleigh','transaction',2,'2022-05-09'],
+  ['Kenleigh','transaction',-15,'2022-05-12'],
+  ['Kenleigh','transaction',-0.75,'2022-05-26'],
+  ['Kenleigh','transaction',-1.5,'2022-06-05'],
+  ['Kenleigh','transaction',2,'2022-06-21'],
+  ['Kenleigh','transaction',2,'2022-06-21'],
+  ['Kenleigh','transaction',-0.5,'2022-06-25'],
+  ['Kenleigh','transaction',2,'2022-06-30'],
+  ['Kenleigh','transaction',2,'2022-07-03'],
+  ['Kenleigh','transaction',2,'2022-07-08'],
+  ['Kenleigh','transaction',2,'2022-07-09'],
+  ['Kenleigh','transaction',3,'2022-07-17'],
+  ['Kenleigh','transaction',-2,'2022-07-17'],
+  ['Kenleigh','transaction',1,'2022-07-17'],
+  ['Kenleigh','transaction',-1,'2022-07-19'],
+  ['Kenleigh','transaction',-1,'2022-08-03'],
+  ['Kenleigh','transaction',7,'2022-08-08'],
+  ['Kenleigh','transaction',1.26,'2022-08-28'],
+  ['Kenleigh','transaction',2,'2022-09-12'],
+  ['Kenleigh','transaction',2,'2022-09-23'],
+  ['Kenleigh','transaction',0.25,'2022-09-26'],
+  ['Kenleigh','transaction',2,'2022-09-27'],
+  ['Kenleigh','transaction',2,'2022-09-27'],
+  ['Kenleigh','transaction',1,'2022-11-13'],
+  ['Kenleigh','transaction',2,'2023-01-17'],
+  ['Kenleigh','Adopt me pets from John',-15,'2023-05-08'],
+  ['Kenleigh','transaction',12,'2023-06-13'],
+  ['Kenleigh','transaction',8,'2023-06-13'],
+  ['Kenleigh','transaction',6,'2023-06-21'],
+  ['Kenleigh','transaction',2,'2023-08-03'],
+  ['Kenleigh','transaction',2,'2023-08-03'],
+  ['Kenleigh','transaction',20,'2023-08-20'],
+  ['Kenleigh','transaction',13,'2023-09-11'],
+  ['Kenleigh','transaction',5,'2024-03-25'],
+  ['Kenleigh','transaction',5,'2024-07-02'],
+  ['Kenleigh','transaction',2,'2024-10-06'],
+  ['Kenleigh','Farm cut July 4',12,'2024-12-11'],
+  ['Kenleigh','wood',65,'2025-02-01'],
+  ['Kenleigh','transaction',50,'2025-02-06'],
+  ['Kenleigh','transaction',-115,'2025-02-08'],
+  ['Kenleigh','transaction',50,'2025-03-04'],
+  ['Kenleigh','transaction',25,'2025-03-04'],
+  ['Kenleigh','transaction',5,'2025-03-04'],
+  ['Kenleigh','transaction',2,'2025-03-05'],
+  ['Kenleigh','transaction',1,'2025-03-05'],
+  ['Kenleigh','transaction',1,'2025-09-06'],
+  ['Kenleigh','transaction',15,'2025-08-19'],
+  ['Kenleigh','transaction',5,'2025-11-06'],
+  ['Kenleigh','transaction',13,'2025-11-21'],
+  ['Kenleigh','transaction',1,'2025-12-13'],
+  ['Kenleigh','transaction',5,'2026-01-24'],
+  ['Kenleigh','transaction',20,'2026-02-22'],
+  ['Kenleigh','transaction',10,'2026-04-13'],
+  ['Kenleigh','transaction',0.53,'2026-04-13'],
+  ['Kenleigh','transaction',5,'2026-04-13'],
+  ['Kenleigh','transaction',4,'2026-05-16'],
+  ['Kenleigh','transaction',21,'2026-05-10'],
+  ['Kenleigh','transaction',2,'2026-05-18'],
+  ['Kenleigh','transaction',-13.76,'2026-05-18'],
+  ['Kenleigh','transaction',1,'2026-05-18'],
+  ['Emery','Beginning balance',0,'2021-01-01'],
+  ['Emery','transaction',1,'2022-07-14'],
+  ['Emery','transaction',1,'2022-07-08'],
+  ['Emery','transaction',5,'2022-08-11'],
+  ['Emery','transaction',6,'2022-09-06'],
+  ['Emery','transaction',20,'2025-12-13'],
+  ['Emery','transaction',20,'2026-01-24'],
+  ['Elaina','Beginning balance',0,'2021-01-01'],
+  ['Elaina','Tooth Fairy (1st tooth)',6,'2026-05-25'],
+  ['Kelsey','Beginning balance',0,'2021-01-01']
+];
+
+// ── GITHUB SYNC ──────────────────────────────────────────────
+function getToken() { try { return localStorage.getItem(TK) || ''; } catch(e) { return ''; } }
+function setToken(t) { try { localStorage.setItem(TK, t); } catch(e) {} }
+function setSyncStatus(s, msg) {
+  var el = document.getElementById('sync-status');
+  if (!el) return;
+  el.className = 'ok'; el.textContent = msg || 'synced';
+  if (s === 'saving') { el.className = 'saving'; el.textContent = 'saving...'; }
+  if (s === 'err') { el.className = 'err'; el.textContent = msg || 'sync error'; }
+}
+
+function ghFetch(method, body, callback) {
+  var token = getToken();
+  if (!token) { callback(null, null); return; }
+  var opts = { method: method, headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' } };
+  if (body) opts.body = JSON.stringify(body);
+  fetch(API_BASE, opts)
+    .then(function(r) { return r.json(); })
+    .then(function(data) { callback(null, data); })
+    .catch(function(err) { callback(err, null); });
+}
+
+function loadFromGitHub(callback) {
+  var token = getToken();
+  if (!token) { callback(false); return; }
+  setSyncStatus('saving', 'loading...');
+  ghFetch('GET', null, function(err, data) {
+    if (err || data.message) { setSyncStatus('err', 'load failed'); callback(false); return; }
+    try {
+      ghSha = data.sha;
+      var json = JSON.parse(atob(data.content.replace(/\n/g, '')));
+      TX = json.transactions || TX;
+      LOG = json.log || LOG;
+      REQ = json.requests || REQ;
+      saveLocal();
+      setSyncStatus('ok', 'synced');
+      callback(true);
+    } catch(e) { setSyncStatus('err', 'parse error'); callback(false); }
+  });
+}
+
+function saveToGitHub() {
+  var token = getToken();
+  if (!token) return;
+  setSyncStatus('saving');
+  var payload = { transactions: TX, log: LOG, requests: REQ, savedAt: new Date().toISOString() };
+  var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+  var body = { message: 'BOD update ' + new Date().toISOString(), content: encoded, branch: GITHUB_BRANCH };
+  if (ghSha) body.sha = ghSha;
+  ghFetch('PUT', body, function(err, data) {
+    if (err || data.message) { setSyncStatus('err', 'save failed'); return; }
+    if (data.content) ghSha = data.content.sha;
+    setSyncStatus('ok', 'synced');
+  });
+}
+
+// ── LOCAL STORAGE ────────────────────────────────────────────
+function saveLocal() {
+  try { localStorage.setItem(SK, JSON.stringify(TX)); localStorage.setItem(LK, JSON.stringify(LOG.slice(-2000))); localStorage.setItem(RK, JSON.stringify(REQ)); } catch(e) {}
+}
+var RK = 'bod_req_v8';
+function loadLocal() {
+  try { var r = localStorage.getItem(SK); TX = r ? JSON.parse(r) : seedTx(); } catch(e) { TX = seedTx(); }
+  try { var l = localStorage.getItem(LK); LOG = l ? JSON.parse(l) : []; } catch(e) { LOG = []; }
+  try { var q = localStorage.getItem(RK); REQ = q ? JSON.parse(q) : []; } catch(e) { REQ = []; }
+}
+function saveState() { saveLocal(); saveToGitHub(); }
+function seedTx() { return SEED.map(function(s,i){ return {id:'s'+i,kid:s[0],desc:s[1],amount:s[2],date:s[3],createdAt:'2021-01-01T00:00:00Z'}; }); }
+
+// ── HELPERS ──────────────────────────────────────────────────
+function fmt(n) { return (n<0?'-':'')+'$'+Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+function fmtDate(d) { return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit'}); }
+function fmtTS(iso) { if(!iso)return''; var d=new Date(iso); return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit'})+' '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}); }
+function bal(kid) { var s=0; for(var i=0;i<TX.length;i++) if(TX[i].kid===kid) s+=TX[i].amount; return s; }
+function addLog(action,kid,desc,amount,txDate,extra) { LOG.push({ts:new Date().toISOString(),action:action,kid:kid,desc:desc,amount:amount,txDate:txDate,extra:extra||''}); }
+function ge(id) { return document.getElementById(id); }
+function ce(tag,cls,txt) { var e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e; }
+function setTab(t) { currentTab=t; render(); window.scrollTo(0,0); }
+
+// ── VERSION POPUP ────────────────────────────────────────────
+function checkVersion() {
+  var seen = '';
+  try { seen = localStorage.getItem('bod_version_seen') || ''; } catch(e) {}
+  if (seen !== APP_VERSION) {
+    var ov = document.getElementById('version-overlay');
+    if (ov) ov.style.display = 'flex';
+    var btn = document.getElementById('version-got-it');
+    if (btn) btn.addEventListener('click', function() {
+      ov.style.display = 'none';
+      try { localStorage.setItem('bod_version_seen', APP_VERSION); } catch(e) {}
+    });
+  }
+}
+
+// ── REQUEST POLLING from bod_requests.json ───────────────────
+var REQ_API = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
+var REQ_RAW = 'https://raw.githubusercontent.com/schneidjii/bank-of-dad/main/bod_requests.json';
+var reqSha = null;
+
+function pollRequests(cb) {
+  fetch(REQ_RAW + '?t=' + Date.now())
+    .then(function(r) { if (!r.ok) throw new Error('no file'); return r.json(); })
+    .then(function(data) {
+      var incoming = data.requests || [];
+      var changed = false;
+      incoming.forEach(function(r) {
+        var exists = false;
+        for (var i = 0; i < REQ.length; i++) { if (REQ[i].id === r.id) { exists = true; break; } }
+        if (!exists) { REQ.push(r); changed = true; }
+      });
+      if (changed) { saveLocal(); if (cb) cb(true); }
+      else { if (cb) cb(false); }
+    })
+    .catch(function() { if (cb) cb(false); });
+}
+
+function clearRequestFile() {
+  // After pulling requests, clear the requests file on GitHub so kids start fresh
+  var token = getToken();
+  if (!token) return;
+  fetch(REQ_API, { headers: { 'Authorization': 'token ' + token } })
+    .then(function(r) { return r.json(); })
+    .then(function(meta) {
+      var empty = btoa(JSON.stringify({ requests: [] }, null, 2));
+      var body = { message: 'BOD clear requests ' + new Date().toISOString(), content: empty, sha: meta.sha, branch: 'main' };
+      fetch(REQ_API, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    })
+    .catch(function() {});
+}
+
+// ── REQUEST HELPERS ──────────────────────────────────────────
+function pendingReqs() { return REQ.filter(function(r){ return r.status==='pending' || r.status==='reviewing'; }); }
+function pendingForKid(kid) { return REQ.filter(function(r){ return r.kid===kid && (r.status==='pending'||r.status==='reviewing'); }); }
+
+function markReviewing() {
+  var changed=false;
+  REQ.forEach(function(r){
+    if(r.status==='pending'){ r.status='reviewing'; addLog('REVIEWING',r.kid,r.desc,r.amount,'',r.id); changed=true; }
+  });
+  if(changed) saveState();
+}
+
+function approveReq(id) {
+  var r=REQ.filter(function(x){return x.id===id;})[0]; if(!r) return;
+  r.status='approved'; r.resolvedAt=new Date().toISOString();
+  TX.push({id:Date.now()+Math.random(),kid:r.kid,desc:r.desc,amount:r.amount,date:r.resolvedAt.split('T')[0],createdAt:r.resolvedAt,fromRequest:id});
+  addLog('APPROVED',r.kid,r.desc,r.amount,'','Request ID: '+id);
+  saveState(); render();
+}
+
+function denyReq(id) {
+  var reason=prompt('Reason for denying this request (optional):') || '';
+  var r=REQ.filter(function(x){return x.id===id;})[0]; if(!r) return;
+  r.status='denied'; r.resolvedAt=new Date().toISOString(); r.reason=reason;
+  addLog('DENIED',r.kid,r.desc,r.amount,'',reason?'Reason: '+reason:'No reason given');
+  saveState(); render();
+}
+
+function notifyPending() {
+  var count=pendingReqs().length;
+  if(count===0) return;
+  if('Notification' in window && Notification.permission==='granted'){
+    new Notification('Bank of Dad', {body: count+' pending request'+(count>1?'s':''), icon:'icon-192.png'});
+  }
+}
+
+function requestNotifPermission() {
+  if('Notification' in window && Notification.permission==='default'){
+    Notification.requestPermission();
+  }
+}
+
+// ── RENDER ───────────────────────────────────────────────────
+function render() {
+  ge('hdr-date').textContent = new Date().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+  var tabBar = ge('tabs'); tabBar.innerHTML = '';
+  ['dashboard'].concat(KIDS).concat(['requests','rawdata','auditlog','settings']).forEach(function(t) {
+    var labels = {dashboard:'Overview',rawdata:'Raw Data',auditlog:'Audit Log',settings:'Settings',requests:'Requests'};
+    var btn = ce('button','',labels[t]||t);
+    if(t===currentTab) btn.className='active';
+    btn.addEventListener('click',(function(tab){return function(){setTab(tab);};})(t));
+    tabBar.appendChild(btn);
+  });
+  var c = ge('content'); c.innerHTML='';
+  if(currentTab==='dashboard') renderDashboard(c);
+  else if(currentTab==='rawdata') renderRaw(c);
+  else if(currentTab==='auditlog') renderAudit(c);
+  else if(currentTab==='settings') renderSettings(c);
+  else if(currentTab==='requests') renderRequests(c);
+  else renderKid(c, currentTab);
+}
+
+function renderDashboard(c) {
+  // Poll for new kid requests from GitHub
+  pollRequests(function(hadNew) {
+    if (hadNew) { clearRequestFile(); markReviewing(); notifyPending(); render(); }
+  });
+  // Mark pending as reviewing when Dad opens overview
+  markReviewing();
+  notifyPending();
+
+  // Pending requests banner
+  var pending=pendingReqs();
+  if(pending.length>0){
+    var banner=ce('div','pending-banner');
+    var bt=ce('div','pending-banner-text','⏳ '+pending.length+' pending request'+(pending.length>1?'s':'')+' waiting for review');
+    var bb=ce('div','pending-badge',''+pending.length);
+    banner.appendChild(bt); banner.appendChild(bb);
+    banner.addEventListener('click',function(){setTab('requests');});
+    c.appendChild(banner);
+  }
+
+  var total=0, grid=ce('div','grid');
+  KIDS.forEach(function(k) {
+    var b=bal(k); total+=b;
+    var card=ce('div','dash-card');
+    card.appendChild(ce('div','dc-name',k));
+    card.appendChild(ce('div','dc-bal '+(b>=0?'pos-t':'neg-t'),fmt(b)));
+    card.addEventListener('click',(function(kid){return function(){setTab(kid);};})(k));
+    grid.appendChild(card);
+  });
+  c.appendChild(grid);
+  var tb=ce('div','total-bar');
+  tb.appendChild(ce('span','','Total across all accounts'));
+  tb.appendChild(ce('strong','',fmt(total)));
+  c.appendChild(tb);
+  c.appendChild(ce('div','sec-label','12 most recent transactions'));
+  var recent=TX.slice().sort(function(a,b){return b.date.localeCompare(a.date);}).slice(0,12);
+  var tbl=buildTable(['Date','Kid','Description','Amount'],recent.map(function(t){
+    return [
+      {txt:fmtDate(t.date),style:'color:#aaa;font-size:11px;width:65px'},
+      {txt:t.kid,style:'color:#b8962e;font-weight:600;font-size:11px;width:85px'},
+      {txt:t.desc},
+      {txt:fmt(t.amount),style:(t.amount>=0?'color:#16a34a':'color:#dc2626')+';text-align:right;font-weight:600;white-space:nowrap'}
+    ];
+  }));
+  c.appendChild(tbl);
+}
+
+function renderKid(c, kid) {
+  var b=bal(kid);
+  var bc=ce('div','bal-card');
+  bc.appendChild(ce('div','bal-name',kid));
+  bc.appendChild(ce('div','bal-amt '+(b>=0?'pos':'neg'),fmt(b)));
+  c.appendChild(bc);
+
+  var form=ce('div','form-box');
+  form.appendChild(ce('h3','','Add Transaction'));
+  var row=ce('div','form-row');
+  var dIn=document.createElement('input'); dIn.type='text'; dIn.placeholder='Description'; dIn.id='inp-d'; dIn.style.flex='2';
+  var aIn=document.createElement('input'); aIn.type='number'; aIn.placeholder='Amount'; aIn.id='inp-a'; aIn.step='0.01';
+  var dtIn=document.createElement('input'); dtIn.type='date'; dtIn.id='inp-dt';
+  dtIn.value=new Date().toISOString().split('T')[0];
+  row.appendChild(dIn); row.appendChild(aIn); row.appendChild(dtIn);
+  form.appendChild(row);
+  var addBtn=ce('button','btn-add','+ Add Transaction');
+  addBtn.addEventListener('click',function(){
+    var d=ge('inp-d').value.trim(), a=parseFloat(ge('inp-a').value), dt=ge('inp-dt').value;
+    if(!d||isNaN(a)||!dt){alert('Please fill in all fields.');return;}
+    TX.push({id:Date.now()+Math.random(),kid:kid,desc:d,amount:a,date:dt,createdAt:new Date().toISOString()});
+    addLog('CREATE',kid,d,a,dt,'');
+    saveState(); setTab(kid);
+  });
+  form.appendChild(addBtn);
+  form.appendChild(ce('div','hint','Use negative numbers for deductions (e.g. -10.00)'));
+  c.appendChild(form);
+
+  var kidTx=TX.filter(function(t){return t.kid===kid;}).sort(function(a,b){return b.date.localeCompare(a.date);});
+  c.appendChild(ce('div','sec-label',kidTx.length+' transactions \u2014 newest first'));
+  if(!kidTx.length){c.appendChild(ce('div','empty','No transactions yet'));return;}
+
+  var running=b, list=ce('div','tx-list');
+  kidTx.forEach(function(t) {
+    var tb2=running; running-=t.amount;
+    var card=ce('div','tx-card');
+
+    // --- VIEW MODE ---
+    var viewMode=ce('div','');
+    var top=ce('div','tx-top');
+    var desc=ce('div','tx-desc',t.desc); desc.title=t.desc;
+    var amt=ce('div','tx-amt '+(t.amount>=0?'pos-t':'neg-t'),fmt(t.amount));
+    top.appendChild(desc); top.appendChild(amt);
+    var bot=ce('div','tx-bot');
+    var meta=ce('div','tx-meta');
+    meta.appendChild(document.createTextNode(fmtDate(t.date)));
+    meta.appendChild(document.createElement('br'));
+    meta.appendChild(document.createTextNode('Added: '+fmtTS(t.createdAt)));
+    var right=ce('div','tx-right');
+    right.appendChild(ce('div','tx-bal','Bal: '+fmt(tb2)));
+    var eb=ce('button','tx-edit-btn','\u270E');
+    eb.title='Edit';
+    var db=ce('button','tx-del','\u2715');
+    db.title='Delete';
+    db.addEventListener('click',(function(tid){return function(){delTx(tid);};})(t.id));
+    right.appendChild(eb); right.appendChild(db);
+    bot.appendChild(meta); bot.appendChild(right);
+    viewMode.appendChild(top); viewMode.appendChild(bot);
+
+    // --- EDIT MODE ---
+    var editMode=ce('div','tx-edit-form'); editMode.style.display='none';
+    var eRow=ce('div','tx-edit-row');
+    var eDesc=document.createElement('input'); eDesc.type='text'; eDesc.value=t.desc; eDesc.style.flex='2';
+    var eAmt=document.createElement('input'); eAmt.type='number'; eAmt.value=t.amount; eAmt.step='0.01'; eAmt.style.width='100px';
+    var eDt=document.createElement('input'); eDt.type='date'; eDt.value=t.date; eDt.style.width='130px';
+    eRow.appendChild(eDesc); eRow.appendChild(eAmt); eRow.appendChild(eDt);
+    var eBtns=ce('div','tx-edit-btns');
+    var saveB=ce('button','tx-save-btn','Save');
+    var cancelB=ce('button','tx-cancel-btn','Cancel');
+    eBtns.appendChild(saveB); eBtns.appendChild(cancelB);
+    editMode.appendChild(eRow); editMode.appendChild(eBtns);
+
+    // Toggle edit mode
+    eb.addEventListener('click',function(){
+      viewMode.style.display='none'; editMode.style.display='block'; eDesc.focus();
+    });
+    cancelB.addEventListener('click',function(){
+      editMode.style.display='none'; viewMode.style.display=''; 
+      eDesc.value=t.desc; eAmt.value=t.amount; eDt.value=t.date;
+    });
+    saveB.addEventListener('click',(function(tx){return function(){
+      var newDesc=eDesc.value.trim();
+      var newAmt=parseFloat(eAmt.value);
+      var newDate=eDt.value;
+      if(!newDesc||isNaN(newAmt)||!newDate){alert('Please fill in all fields.');return;}
+      var before={desc:tx.desc,amount:tx.amount,date:tx.date};
+      var after={desc:newDesc,amount:newAmt,date:newDate};
+      tx.desc=newDesc; tx.amount=newAmt; tx.date=newDate;
+      tx.editedAt=new Date().toISOString();
+      addLog('EDIT',tx.kid,newDesc,newAmt,newDate,
+        'Was: "'+before.desc+'" '+fmt(before.amount)+' on '+before.date);
+      saveState(); setTab(currentTab);
+    };})(t));
+
+    card.appendChild(viewMode); card.appendChild(editMode);
+    list.appendChild(card);
+  });
+  c.appendChild(list);
+}
+
+function renderRaw(c) {
+  var brow=ce('div','btn-row');
+  var expB=ce('button','btn','\u2B07 Export CSV'); expB.addEventListener('click',exportCSV);
+  var impB=ce('button','btn','\u2B06 Import CSV');
+  var rstB=ce('button','btn','\u21BA Reset'); rstB.addEventListener('click',resetData);
+  brow.appendChild(expB); brow.appendChild(impB); brow.appendChild(rstB);
+  c.appendChild(brow);
+  var ibox=ce('div','import-box'); ibox.id='ibox';
+  var ta=document.createElement('textarea'); ta.rows=4; ta.placeholder='2024-01-15,Donald John,Birthday money,20.00';
+  var ibrow=ce('div','btn-row'); ibrow.style.marginTop='8px';
+  var doI=ce('button','btn-add',''); doI.textContent='\u2713 Import'; doI.style.cssText='width:auto;margin-top:0;padding:7px 14px';
+  var canI=ce('button','btn','Cancel');
+  doI.addEventListener('click',function(){doImport(ta.value);});
+  canI.addEventListener('click',function(){ibox.style.display='none';});
+  ibrow.appendChild(doI); ibrow.appendChild(canI);
+  ibox.appendChild(ce('div','sec-label','Paste CSV \u2014 Date, Kid, Description, Amount'));
+  ibox.appendChild(ta); ibox.appendChild(ibrow);
+  c.appendChild(ibox);
+  impB.addEventListener('click',function(){ibox.style.display=ibox.style.display==='block'?'none':'block';});
+  var all=TX.slice().sort(function(a,b){return b.date.localeCompare(a.date);});
+  c.appendChild(ce('div','sec-label',all.length+' total transactions'));
+  var wrap=ce('div',''); wrap.style.overflowX='auto';
+  var tbl=buildTable(['Date','Kid','Description','Amount','Created',''],all.map(function(t){
+    return [
+      {txt:fmtDate(t.date),style:'color:#aaa;font-size:11px;width:65px'},
+      {txt:t.kid,style:'color:#b8962e;font-weight:600;font-size:11px'},
+      {txt:t.desc,title:t.desc},
+      {txt:fmt(t.amount),style:(t.amount>=0?'color:#16a34a':'color:#dc2626')+';text-align:right;font-weight:600;white-space:nowrap'},
+      {txt:fmtTS(t.createdAt),style:'color:#aaa;font-size:10px;white-space:nowrap'},
+      {del:t.id}
+    ];
+  }));
+  wrap.appendChild(tbl); c.appendChild(wrap);
+}
+
+function renderAudit(c) {
+  var sorted=LOG.slice().reverse();
+  if(!sorted.length){c.appendChild(ce('div','empty','No audit events yet.'));return;}
+  c.appendChild(ce('div','sec-label',sorted.length+' audit events \u2014 newest first'));
+  var wrap=ce('div',''); wrap.style.overflowX='auto';
+  var tbl=buildTable(['Time','Action','Kid','Description','Amount'],sorted.map(function(e){
+    var bc=e.action==='CREATE'?'bc':e.action==='DELETE'?'bd':e.action==='EDIT'?'badge-edit':e.action==='REQUEST'?'badge-request':e.action==='APPROVED'?'badge-approved':e.action==='DENIED'?'badge-denied':e.action==='REVIEWING'?'badge-reviewing':e.action==='CANCELLED'?'badge-cancelled':'br';
+    return [
+      {txt:fmtTS(e.ts),style:'font-size:10px;color:#aaa;white-space:nowrap'},
+      {html:'<span class="badge '+bc+'">'+e.action+'</span>'},
+      {txt:e.kid,style:'color:#b8962e;font-weight:600;font-size:11px'},
+      {txt:e.desc,title:e.desc},
+      {txt:fmt(e.amount),style:(e.amount>=0?'color:#16a34a':'color:#dc2626')+';text-align:right;font-weight:600;white-space:nowrap'}
+    ];
+  }));
+  wrap.appendChild(tbl); c.appendChild(wrap);
+}
+
+function renderSettings(c) {
+  // Token setup
+  var sbox=ce('div','form-box');
+  sbox.style.marginBottom='14px';
+  var sh=ce('h3','','GitHub Sync');
+  sbox.appendChild(sh);
+  var hasToken = !!getToken();
+  var statusP = ce('p','',hasToken ? '\u2705 Token connected. Data syncs to GitHub on every save.' : '\u26A0\uFE0F No token set. Kids\' pages won\'t update automatically.');
+  statusP.style.cssText='font-size:12px;color:'+(hasToken?'#16a34a':'#b8962e')+';margin-bottom:10px';
+  sbox.appendChild(statusP);
+  var tIn=document.createElement('input'); tIn.type='password'; tIn.placeholder='Paste GitHub token (ghp_xxx...)';
+  tIn.style.cssText='width:100%;padding:8px 10px;border:1px solid #ddd8ce;border-radius:6px;font-size:12px;font-family:monospace;margin-bottom:8px;background:#faf8f4';
+  if(hasToken) tIn.value='••••••••••••••••••••';
+  sbox.appendChild(tIn);
+  var tBtn=ce('button','btn-add','Save Token');
+  tBtn.addEventListener('click',function(){
+    var v=tIn.value.trim();
+    if(!v||v.indexOf('•')>=0){alert('Please paste a valid token.');return;}
+    setToken(v);
+    setSyncStatus('saving','testing...');
+    loadFromGitHub(function(ok){
+      if(ok){alert('Connected! Data loaded from GitHub.');render();}
+      else{
+        // File may not exist yet — try to create it
+        ghSha=null;
+        saveToGitHub();
+        alert('Token saved. Initial data will sync now.');
+        render();
+      }
+    });
+  });
+  sbox.appendChild(tBtn);
+  if(hasToken){
+    var clrBtn=ce('button','btn','Clear Token'); clrBtn.style.marginTop='8px';
+    clrBtn.addEventListener('click',function(){
+      if(confirm('Remove GitHub token? Sync will stop.')){
+        try{localStorage.removeItem(TK);}catch(e){}
+        render();
+      }
+    });
+    sbox.appendChild(document.createElement('br'));
+    sbox.appendChild(clrBtn);
+  }
+  c.appendChild(sbox);
+
+  // Share links
+  var lbox=ce('div','form-box');
+  lbox.appendChild(ce('h3','','Kid Read-Only Links'));
+  var note=ce('p','','Share these links with each child. They show live balance and transaction history.');
+  note.style.cssText='font-size:12px;color:#888;margin-bottom:12px';
+  lbox.appendChild(note);
+  KIDS.forEach(function(kid){
+    var kidFile='bod_'+kid.toLowerCase().replace(/ /g,'_')+'.html';
+    var url='https://schneidjii.github.io/bank-of-dad/'+kidFile;
+    var row=ce('div','');
+    row.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap';
+    var name=ce('span','',kid);
+    name.style.cssText='font-size:12px;font-weight:600;color:#1a2e2e;width:100px;flex-shrink:0';
+    var link=ce('a','',url);
+    link.href=url; link.target='_blank';
+    link.style.cssText='font-size:11px;color:#b8962e;word-break:break-all';
+    var copyBtn=ce('button','btn','Copy');
+    copyBtn.style.cssText='padding:4px 10px;font-size:11px;flex-shrink:0';
+    copyBtn.addEventListener('click',(function(u,b){return function(){
+      navigator.clipboard.writeText(u).then(function(){b.textContent='Copied!';setTimeout(function(){b.textContent='Copy';},1500);});
+    };})(url,copyBtn));
+    row.appendChild(name); row.appendChild(link); row.appendChild(copyBtn);
+    lbox.appendChild(row);
+  });
+  c.appendChild(lbox);
+
+  // Manual sync button
+  var mbox=ce('div','form-box');
+  mbox.appendChild(ce('h3','','Manual Sync'));
+  var pullBtn=ce('button','btn','\u2193 Pull from GitHub');
+  pullBtn.style.marginRight='8px';
+  pullBtn.addEventListener('click',function(){
+    loadFromGitHub(function(ok){
+      if(ok){render();alert('Data refreshed from GitHub.');}
+      else alert('Could not load from GitHub. Check your token in Settings.');
+    });
+  });
+  var pushBtn=ce('button','btn','\u2191 Push to GitHub');
+  pushBtn.addEventListener('click',function(){
+    saveToGitHub();
+    alert('Pushing data to GitHub...');
+  });
+  mbox.appendChild(pullBtn); mbox.appendChild(pushBtn);
+  c.appendChild(mbox);
+}
+
+function renderRequests(c) {
+  // Poll button at top
+  var pollRow = ce('div','btn-row');
+  var pollBtn = ce('button','req-poll-btn','⟳ Check for New Requests');
+  pollBtn.addEventListener('click', function() {
+    pollBtn.textContent = 'Checking...';
+    pollRequests(function(hadNew) {
+      clearRequestFile();
+      if (hadNew) { render(); } 
+      else { pollBtn.textContent = '✓ Up to date'; setTimeout(function(){ render(); }, 1500); }
+    });
+  });
+  pollRow.appendChild(pollBtn);
+  c.appendChild(pollRow);
+
+  var pending=REQ.filter(function(r){return r.status==='pending'||r.status==='reviewing';});
+  var resolved=REQ.filter(function(r){return r.status==='approved'||r.status==='denied'||r.status==='cancelled';}).slice(-20).reverse();
+
+  if(!pending.length && !resolved.length){
+    c.appendChild(ce('div','empty','No requests yet. Kids can submit deposit and withdrawal requests from their pages.'));
+    return;
+  }
+
+  if(pending.length){
+    c.appendChild(ce('div','sec-label','Pending requests — '+pending.length+' awaiting decision'));
+    var pList=ce('div','req-section');
+    pending.forEach(function(r){
+      var card=ce('div','req-card');
+      var top=ce('div','req-top');
+      var desc=ce('div','req-desc',r.desc);
+      var amtCls=r.amount>=0?'pos-t':'neg-t';
+      var amt=ce('div','req-amt '+amtCls,fmt(r.amount));
+      top.appendChild(desc); top.appendChild(amt);
+      var bot=ce('div','req-bot');
+      var meta=ce('div','req-meta');
+      var statusCls=r.status==='reviewing'?'badge-reviewing':'badge-request';
+      var statusLbl=r.status==='reviewing'?'Reviewing':'Pending';
+      meta.innerHTML='<span class="badge '+statusCls+'">'+statusLbl+'</span> '+r.kid+'<br>Submitted: '+fmtTS(r.submittedAt);
+      var actions=ce('div','req-actions');
+      var appB=ce('button','req-approve','✓ Approve');
+      var denB=ce('button','req-deny','✕ Deny');
+      appB.addEventListener('click',(function(rid){return function(){approveReq(rid);};})(r.id));
+      denB.addEventListener('click',(function(rid){return function(){denyReq(rid);};})(r.id));
+      actions.appendChild(appB); actions.appendChild(denB);
+      bot.appendChild(meta); bot.appendChild(actions);
+      card.appendChild(top); card.appendChild(bot);
+      pList.appendChild(card);
+    });
+    c.appendChild(pList);
+  }
+
+  if(resolved.length){
+    c.appendChild(ce('div','sec-label','Recently resolved'));
+    var rList=ce('div','req-section');
+    resolved.forEach(function(r){
+      var card=ce('div','req-card greyed');
+      var top=ce('div','req-top');
+      var desc=ce('div','req-desc',r.desc);
+      var amt=ce('div','req-amt',fmt(r.amount));
+      top.appendChild(desc); top.appendChild(amt);
+      var bot=ce('div','req-bot');
+      var meta=ce('div','req-meta');
+      var sc=r.status==='approved'?'badge-approved':r.status==='denied'?'badge-denied':'badge-cancelled';
+      meta.innerHTML='<span class="badge '+sc+'">'+r.status.toUpperCase()+'</span> '+r.kid+'<br>'+fmtTS(r.resolvedAt||r.submittedAt);
+      if(r.reason) meta.innerHTML+='<br><span style="color:#dc2626;font-style:italic">'+r.reason+'</span>';
+      bot.appendChild(meta);
+      card.appendChild(top); card.appendChild(bot);
+      rList.appendChild(card);
+    });
+    c.appendChild(rList);
+  }
+}
+
+function buildTable(headers, rows) {
+  var tbl=document.createElement('table');
+  var thead=tbl.createTHead(); var hr=thead.insertRow();
+  headers.forEach(function(h){var th=document.createElement('th');th.textContent=h;hr.appendChild(th);});
+  var tbody=tbl.createTBody();
+  rows.forEach(function(cells){
+    var row=tbody.insertRow();
+    cells.forEach(function(cell){
+      var td=row.insertCell();
+      if(cell.del!==undefined){
+        var db=ce('button','del-btn','\u2715');
+        db.addEventListener('click',(function(tid){return function(){delTx(tid);};})(cell.del));
+        td.appendChild(db); td.style.textAlign='right';
+      } else if(cell.html){ td.innerHTML=cell.html;
+      } else {
+        td.textContent=cell.txt||'';
+        if(cell.style) td.style.cssText=cell.style;
+        if(cell.title){td.title=cell.title;td.style.maxWidth='180px';td.style.overflow='hidden';td.style.textOverflow='ellipsis';}
+      }
+    });
+  });
+  return tbl;
+}
+
+function delTx(id) {
+  var tx=null;
+  for(var i=0;i<TX.length;i++) if(String(TX[i].id)===String(id)){tx=TX[i];break;}
+  if(!tx||!confirm('Delete "'+tx.desc+'" ('+fmt(tx.amount)+') for '+tx.kid+'?')) return;
+  addLog('DELETE',tx.kid,tx.desc,tx.amount,tx.date,'Deleted '+fmtTS(new Date().toISOString()));
+  TX=TX.filter(function(t){return String(t.id)!==String(id);});
+  saveState(); render();
+}
+
+function exportCSV() {
+  var rows=[['Date','Kid','Description','Amount','CreatedAt']];
+  TX.forEach(function(t){rows.push([t.date,t.kid,t.desc,t.amount.toFixed(2),t.createdAt||'']);});
+  var csv=rows.map(function(r){return r.map(function(v){return '"'+String(v).replace(/"/g,'""')+'"';}).join(',');}).join('\n');
+  var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='bank_of_dad.csv'; a.click();
+}
+
+function doImport(text) {
+  var lines=text.trim().split('\n').filter(function(l){return l.trim();});
+  var added=0;
+  lines.forEach(function(line){
+    var p=line.split(',').map(function(x){return x.replace(/^"|"$/g,'').trim();});
+    if(p.length>=4&&KIDS.indexOf(p[1])>=0&&!isNaN(parseFloat(p[3]))){
+      TX.push({id:Date.now()+Math.random(),kid:p[1],desc:p[2],amount:parseFloat(p[3]),date:p[0],createdAt:new Date().toISOString()});
+      addLog('CREATE',p[1],p[2],parseFloat(p[3]),p[0],'CSV import');
+      added++;
+    }
+  });
+  saveState(); alert(added+' imported.'); render();
+}
+
+function resetData() {
+  if(!confirm('Reset all data? Cannot be undone.')) return;
+  TX=seedTx(); addLog('RESET','ALL','Reset to seed',0,'','');
+  saveState(); render();
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+loadLocal();
+requestNotifPermission();
+checkVersion();
+if(getToken()){
+  loadFromGitHub(function(ok){ render(); });
+} else {
+  render();
+}
+</script>
+<div id="version-overlay" class="version-overlay" style="display:none">
+  <div class="version-box">
+    <img src="icon-180.png" alt="BOD">
+    <h2>What's New</h2>
+    <div class="ver-num">Bank of Dad v2.0</div>
+    <ul>
+      <li><span>📥</span>Kids can now submit deposit &amp; withdrawal requests directly from their pages</li>
+      <li><span>🔔</span>You get notified instantly when a request comes in</li>
+      <li><span>🔵</span>Two-stage review: Pending → Reviewing → Approved or Denied</li>
+      <li><span>📋</span>Full audit trail for every request action</li>
+      <li><span>❌</span>Kids can cancel their own pending requests</li>
+    </ul>
+    <button class="version-got-it" id="version-got-it">Got it!</button>
+  </div>
+</div>
+</body>
+</html>

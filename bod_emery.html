@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emery — Bank of Dad</title>
+<link rel="manifest" href="manifest_emery.json">
+<meta name="theme-color" content="#1a2e2e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Emery">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0ede6; color: #1a2a2a; font-size: 14px; }
+#hdr { background: #1a2e2e; padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 3px solid #b8962e; }
+#hdr img { width: 38px; height: 50px; object-fit: contain; }
+#hdr h1 { font-size: 16px; font-weight: 700; color: #e8d48a; }
+#hdr p { font-size: 10px; color: #7a9a9a; text-transform: uppercase; letter-spacing: .08em; }
+.banner { background: #b8962e; color: #1a2e2e; text-align: center; padding: 6px; font-size: 11px; font-weight: 700; letter-spacing: .06em; }
+#content { padding: 14px; max-width: 700px; margin: 0 auto; }
+.bal-card { background: linear-gradient(135deg,#1a2e2e,#1e3838); border-radius: 10px; padding: 14px 18px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; border: 1px solid #2e4a4a; }
+.bal-name { font-size: 16px; font-weight: 700; color: #e8d48a; }
+.bal-amt { font-size: 28px; font-weight: 700; }
+.pos { color: #4ade80; } .neg { color: #f87171; }
+.pos-t { color: #16a34a; } .neg-t { color: #dc2626; }
+.sec-label { font-size: 10px; font-weight: 700; color: #b8962e; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; margin-top: 14px; }
+.req-form { background: #fff; border: 1px solid #ddd8ce; border-radius: 10px; padding: 12px 14px; margin-bottom: 4px; }
+.req-form h3 { font-size: 10px; font-weight: 700; color: #b8962e; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.req-toggle { display: flex; gap: 6px; margin-bottom: 8px; }
+.req-toggle button { flex: 1; padding: 8px; border: 1px solid #ddd8ce; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; background: #faf8f4; color: #888; }
+.dep-active { background: #dcfce7 !important; color: #16a34a !important; border-color: #16a34a !important; }
+.wit-active { background: #fee2e2 !important; color: #dc2626 !important; border-color: #dc2626 !important; }
+.req-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.req-row input { padding: 8px 10px; border: 1px solid #ddd8ce; border-radius: 6px; font-size: 13px; background: #faf8f4; flex: 1; min-width: 90px; }
+.req-row input:focus { outline: none; border-color: #b8962e; }
+.req-submit { width: 100%; padding: 9px 14px; background: #1a2e2e; color: #e8d48a; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 700; }
+.req-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.tx-list { background: #fff; border-radius: 10px; border: 1px solid #ddd8ce; overflow: hidden; }
+.tx-card { padding: 10px 12px; border-bottom: 1px solid #f0ece4; }
+.tx-card:last-child { border-bottom: none; }
+.tx-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.tx-desc { font-size: 13px; color: #1a2a2a; flex: 1; word-break: break-word; }
+.tx-amt { font-size: 14px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+.tx-bot { display: flex; justify-content: space-between; align-items: center; }
+.tx-meta { font-size: 10px; color: #aaa; line-height: 1.5; }
+.tx-bal { font-size: 11px; color: #999; }
+.req-list { background: #fff; border-radius: 10px; border: 1px solid #ddd8ce; overflow: hidden; margin-bottom: 4px; }
+.req-card { padding: 10px 12px; border-bottom: 1px solid #f0ece4; }
+.req-card:last-child { border-bottom: none; }
+.req-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.req-desc { font-size: 13px; color: #1a2a2a; flex: 1; word-break: break-word; }
+.req-amt { font-size: 14px; font-weight: 700; white-space: nowrap; flex-shrink: 0; }
+.req-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px; }
+.req-meta { font-size: 10px; color: #aaa; line-height: 1.6; }
+.req-cancel { padding: 4px 10px; background: #fff; color: #888; border: 1px solid #ddd8ce; border-radius: 5px; cursor: pointer; font-size: 11px; }
+.badge { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 700; text-transform: uppercase; margin-right: 4px; }
+.bp { background: #fef3c7; color: #92400e; }
+.br { background: #dbeafe; color: #1d4ed8; }
+.ba { background: #dcfce7; color: #16a34a; }
+.bd { background: #fee2e2; color: #dc2626; }
+.bc { background: #f3f4f6; color: #6b7280; }
+.empty { text-align: center; padding: 20px; color: #aaa; font-size: 13px; }
+.status { text-align: center; padding: 8px; font-size: 11px; color: #aaa; }
+.version-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.75); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.version-box { background: #1a2e2e; border-radius: 14px; padding: 24px; max-width: 360px; width: 100%; border: 2px solid #b8962e; text-align: center; }
+.version-box img { width: 55px; height: 72px; object-fit: contain; margin-bottom: 10px; }
+.version-box h2 { font-size: 18px; font-weight: 700; color: #e8d48a; margin-bottom: 4px; }
+.version-box .ver-num { font-size: 11px; color: #b8962e; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+.version-box ul { text-align: left; list-style: none; padding: 0; margin-bottom: 18px; }
+.version-box ul li { font-size: 13px; color: #e0d9cc; padding: 5px 0; border-bottom: 1px solid #2e4a4a; display: flex; gap: 8px; }
+.version-box ul li:last-child { border-bottom: none; }
+.version-got-it { width: 100%; padding: 11px; background: #b8962e; color: #1a2e2e; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="hdr">
+  <img src="crest.png" alt="Schneider">
+  <div><h1>Bank of Dad</h1><p>Schneider Family</p></div>
+</div>
+<div class="banner">EMERY — READ-ONLY</div>
+<div id="content"><div class="status">Loading your account...</div></div>
+
+<div id="ver-overlay" class="version-overlay" style="display:none">
+  <div class="version-box">
+    <img src="icon-180.png" alt="BOD">
+    <h2>What's New</h2>
+    <div class="ver-num">Bank of Dad v2.0</div>
+    <ul>
+      <li><span>&#x1F4E5;</span>You can now submit deposit &amp; withdrawal requests!</li>
+      <li><span>&#x23F3;</span>Track your request status: Pending, Reviewing, Approved or Denied</li>
+      <li><span>&#x274C;</span>Cancel your own pending requests anytime</li>
+    </ul>
+    <button class="version-got-it" id="ver-got-it">Let's go!</button>
+  </div>
+</div>
+
+<script>
+var KID = 'Emery';
+var KID_VER = '2.0';
+var VER_KEY = 'bod_kid_ver_emery';
+var LOC_KEY = 'bod_myreqs_emery';
+var WORKER_URL = 'https://bod-requests.schneidjii.workers.dev';
+var DATA_URL = 'https://raw.githubusercontent.com/schneidjii/bank-of-dad/main/bod_data.json';
+var REQ_RAW = 'https://raw.githubusercontent.com/schneidjii/bank-of-dad/main/bod_requests.json';
+var isDeposit = true;
+
+function fmt(n){return(n<0?'-':'')+'$'+Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function fmtDate(d){return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit'});}
+function fmtTS(iso){if(!iso)return'';var d=new Date(iso);return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'2-digit'})+' '+d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});}
+function ce(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;}
+function ge(id){return document.getElementById(id);}
+
+function checkVersion(){
+  var seen='';
+  try{seen=localStorage.getItem(VER_KEY)||'';}catch(e){}
+  if(seen!==KID_VER){
+    var ov=ge('ver-overlay'); if(ov)ov.style.display='flex';
+    var btn=ge('ver-got-it');
+    if(btn)btn.addEventListener('click',function(){
+      ov.style.display='none';
+      try{localStorage.setItem(VER_KEY,KID_VER);}catch(e){}
+    });
+  }
+}
+
+function getLocalReqs(){try{return JSON.parse(localStorage.getItem(LOC_KEY)||'[]');}catch(e){return[];}}
+function saveLocalReqs(r){try{localStorage.setItem(LOC_KEY,JSON.stringify(r));}catch(e){}}
+
+function submitRequest(){
+  var desc=ge('req-desc').value.trim();
+  var amt=parseFloat(ge('req-amt').value);
+  if(!desc||isNaN(amt)||amt<=0){alert('Please fill in a description and a positive amount.');return;}
+  var finalAmt=isDeposit?Math.abs(amt):-Math.abs(amt);
+  var subBtn=ge('req-submit-btn');
+  if(subBtn){subBtn.disabled=true;subBtn.textContent='Submitting...';}
+  var req={
+    id:Date.now()+''+Math.floor(Math.random()*9999),
+    kid:KID, desc:desc, amount:finalAmt,
+    status:'pending', submittedAt:new Date().toISOString(),
+    resolvedAt:null, reason:''
+  };
+  fetch(WORKER_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({action:'submit',kid:KID,desc:desc,amount:finalAmt,id:req.id})
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(data.success){
+      var local=getLocalReqs(); local.push(req); saveLocalReqs(local);
+      ge('req-desc').value=''; ge('req-amt').value='';
+      if(subBtn){subBtn.disabled=false;subBtn.textContent='Submit Request';}
+      renderRequests();
+      alert('Request submitted! Dad will review it soon.');
+    } else {
+      throw new Error(data.error||'Unknown error');
+    }
+  })
+  .catch(function(err){
+    // Save locally as fallback
+    var local=getLocalReqs(); local.push(req); saveLocalReqs(local);
+    ge('req-desc').value=''; ge('req-amt').value='';
+    if(subBtn){subBtn.disabled=false;subBtn.textContent='Submit Request';}
+    renderRequests();
+    alert('Request saved locally. It will sync when connection is restored.');
+  });
+}
+
+function cancelRequest(id){
+  if(!confirm('Cancel this request?'))return;
+  var local=getLocalReqs();
+  var found=false;
+  local=local.map(function(r){
+    if(r.id===id){r.status='cancelled';r.resolvedAt=new Date().toISOString();found=true;}
+    return r;
+  });
+  if(found){saveLocalReqs(local);renderRequests();return;}
+  fetch(WORKER_URL,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({action:'cancel',kid:KID,id:id})
+  })
+  .then(function(){renderRequests();})
+  .catch(function(){alert('Could not cancel. Try again.');});
+}
+
+function getAllRequests(cb){
+  fetch(REQ_RAW+'?t='+Date.now())
+    .then(function(r){if(!r.ok)throw new Error();return r.json();})
+    .then(function(data){
+      var ghReqs=(data.requests||[]).filter(function(r){return r.kid===KID;});
+      var local=getLocalReqs();
+      var ghIds=ghReqs.map(function(r){return r.id;});
+      var localOnly=local.filter(function(r){return ghIds.indexOf(r.id)<0;});
+      // Update local status from GitHub
+      local=local.map(function(r){
+        var gh=ghReqs.filter(function(g){return g.id===r.id;})[0];
+        if(gh){r.status=gh.status;r.reason=gh.reason;r.resolvedAt=gh.resolvedAt;}
+        return r;
+      });
+      saveLocalReqs(local);
+      var merged=ghReqs.concat(localOnly).sort(function(a,b){return b.submittedAt.localeCompare(a.submittedAt);});
+      cb(merged);
+    })
+    .catch(function(){
+      cb(getLocalReqs().filter(function(r){return r.kid===KID;}));
+    });
+}
+
+function renderPage(TX){
+  var kidTx=TX.filter(function(t){return t.kid===KID;}).sort(function(a,b){return b.date.localeCompare(a.date);});
+  var b=kidTx.reduce(function(s,t){return s+t.amount;},0);
+  var c=ge('content'); c.innerHTML='';
+
+  var bc=ce('div','bal-card');
+  bc.appendChild(ce('div','bal-name',KID));
+  bc.appendChild(ce('div','bal-amt '+(b>=0?'pos':'neg'),fmt(b)));
+  c.appendChild(bc);
+
+  var form=ce('div','req-form');
+  form.appendChild(ce('h3','','Submit a Request'));
+  var toggle=ce('div','req-toggle');
+  var depBtn=ce('button','dep-active','⬆ Deposit');
+  var witBtn=ce('button','','⬇ Withdrawal');
+  depBtn.addEventListener('click',function(){isDeposit=true;depBtn.className='dep-active';witBtn.className='';});
+  witBtn.addEventListener('click',function(){isDeposit=false;witBtn.className='wit-active';depBtn.className='';});
+  toggle.appendChild(depBtn); toggle.appendChild(witBtn);
+  var rrow=ce('div','req-row');
+  var dIn=document.createElement('input'); dIn.type='text'; dIn.placeholder='What is this for?'; dIn.id='req-desc'; dIn.style.flex='2';
+  var aIn=document.createElement('input'); aIn.type='number'; aIn.placeholder='Amount'; aIn.id='req-amt'; aIn.step='0.01'; aIn.min='0.01';
+  rrow.appendChild(dIn); rrow.appendChild(aIn);
+  var subBtn=ce('button','req-submit','Submit Request'); subBtn.id='req-submit-btn';
+  subBtn.addEventListener('click',submitRequest);
+  form.appendChild(toggle); form.appendChild(rrow); form.appendChild(subBtn);
+  c.appendChild(form);
+
+  c.appendChild(ce('div','sec-label','My Requests'));
+  var reqContainer=ce('div',''); reqContainer.id='req-container';
+  reqContainer.appendChild(ce('div','status','Loading requests...'));
+  c.appendChild(reqContainer);
+
+  c.appendChild(ce('div','sec-label',kidTx.length+' transactions — newest first'));
+  if(!kidTx.length){c.appendChild(ce('div','empty','No transactions yet'));}
+  else{
+    var running=b, list=ce('div','tx-list');
+    kidTx.forEach(function(t){
+      var tb=running; running-=t.amount;
+      var card=ce('div','tx-card');
+      var top=ce('div','tx-top');
+      var desc=ce('div','tx-desc',t.desc);
+      var amt=ce('div','tx-amt '+(t.amount>=0?'pos-t':'neg-t'),fmt(t.amount));
+      top.appendChild(desc); top.appendChild(amt);
+      var bot=ce('div','tx-bot');
+      var meta=ce('div','tx-meta');
+      meta.innerHTML=fmtDate(t.date)+'<br>'+fmt(tb)+' balance';
+      bot.appendChild(meta);
+      card.appendChild(top); card.appendChild(bot); list.appendChild(card);
+    });
+    c.appendChild(list);
+  }
+  renderRequests();
+}
+
+function renderRequests(){
+  var container=ge('req-container'); if(!container)return;
+  getAllRequests(function(reqs){
+    container.innerHTML='';
+    if(!reqs.length){container.appendChild(ce('div','empty','No requests yet. Use the form above!'));return;}
+    var list=ce('div','req-list');
+    reqs.forEach(function(r){
+      var card=ce('div','req-card');
+      var isActive=r.status==='pending'||r.status==='reviewing';
+      if(!isActive)card.style.opacity='0.6';
+      var top=ce('div','req-top');
+      var desc=ce('div','req-desc',r.desc);
+      var amt=ce('div','req-amt '+(r.amount>=0?'pos-t':'neg-t'),fmt(r.amount));
+      top.appendChild(desc); top.appendChild(amt);
+      var bot=ce('div','req-bot');
+      var meta=ce('div','req-meta');
+      var sc=r.status==='pending'?'bp':r.status==='reviewing'?'br':r.status==='approved'?'ba':r.status==='denied'?'bd':'bc';
+      var lbl=r.status.charAt(0).toUpperCase()+r.status.slice(1);
+      meta.innerHTML='<span class="badge '+sc+'">'+lbl+'</span><br>'+fmtTS(r.submittedAt);
+      if(r.reason)meta.innerHTML+='<br><span style="color:#dc2626;font-style:italic">'+r.reason+'</span>';
+      bot.appendChild(meta);
+      if(isActive){
+        var canBtn=ce('button','req-cancel','Cancel');
+        canBtn.addEventListener('click',(function(rid){return function(){cancelRequest(rid);};})(r.id));
+        bot.appendChild(canBtn);
+      }
+      card.appendChild(top); card.appendChild(bot); list.appendChild(card);
+    });
+    container.appendChild(list);
+    container.appendChild(ce('div','status','Updated: '+new Date().toLocaleTimeString()));
+  });
+}
+
+checkVersion();
+fetch(DATA_URL+'?t='+Date.now())
+  .then(function(r){return r.json();})
+  .then(function(data){renderPage(data.transactions||[]);})
+  .catch(function(){ge('content').innerHTML='<div class="empty">Could not load. Check your connection.</div>';});
+</script>
+</body>
+</html>
