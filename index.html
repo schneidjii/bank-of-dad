@@ -601,12 +601,17 @@ function pollRequests(cb) {
 function pendingReqs() { return REQ.filter(function(r){ return r.status==='pending' || r.status==='reviewing'; }); }
 function pendingForKid(kid) { return REQ.filter(function(r){ return r.kid===kid && (r.status==='pending'||r.status==='reviewing'); }); }
 
+var lastReviewingCheck = 0;
 function markReviewing() {
+  // Throttle - only run once per 5 seconds max
+  var now = Date.now();
+  if (now - lastReviewingCheck < 5000) return;
+  lastReviewingCheck = now;
   var changed=false;
   REQ.forEach(function(r){
     if(r.status==='pending'){ r.status='reviewing'; addLog('REVIEWING',r.kid,r.desc,r.amount,'',r.id); changed=true; }
   });
-  if(changed) saveState();
+  if(changed){ saveState(); saveRequestsToGitHub(); }
 }
 
 function approveReq(id) {
@@ -700,7 +705,7 @@ function render() {
 function renderDashboard(c) {
   // Poll for new kid requests from GitHub
   pollRequests(function(hadNew) {
-    if (hadNew) { markReviewing(); notifyPending(); saveRequestsToGitHub(); render(); }
+    if (hadNew) { markReviewing(); notifyPending(); render(); }
   });
   // Mark pending as reviewing when Dad opens overview
   markReviewing();
