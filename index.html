@@ -642,7 +642,7 @@ function saveRequestsToGitHub() {
     return;
   }
   // Always fetch fresh SHA immediately before writing
-  fetch(REQ_API_LOCAL, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Cache-Control': 'no-cache' } })
+  fetch(REQ_API_LOCAL, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
     .then(function(r) { return r.json(); })
     .then(function(meta) {
       if (!meta.sha) throw new Error('no SHA');
