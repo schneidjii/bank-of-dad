@@ -2,7 +2,7 @@
   "name": "Bank of Dad",
   "short_name": "BOD",
   "description": "Schneider Family Bank",
-  "start_url": "/bank-of-dad/bank_of_dad.html",
+  "start_url": "/bank-of-dad/",
   "display": "standalone",
   "background_color": "#1a2e2e",
   "theme_color": "#1a2e2e",
