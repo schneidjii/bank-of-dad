@@ -588,19 +588,7 @@ function pollRequests(cb) {
     .catch(function() { if (cb) cb(false); });
 }
 
-function clearRequestFile() {
-  // After pulling requests, clear the requests file on GitHub so kids start fresh
-  var token = getToken();
-  if (!token) return;
-  fetch(REQ_API, { headers: { 'Authorization': 'token ' + token } })
-    .then(function(r) { return r.json(); })
-    .then(function(meta) {
-      var empty = btoa(JSON.stringify({ requests: [] }, null, 2));
-      var body = { message: 'BOD clear requests ' + new Date().toISOString(), content: empty, sha: meta.sha, branch: 'main' };
-      fetch(REQ_API, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-    })
-    .catch(function() {});
-}
+// clearRequestFile removed - requests persist with status
 
 // ── REQUEST HELPERS ──────────────────────────────────────────
 function pendingReqs() { return REQ.filter(function(r){ return r.status==='pending' || r.status==='reviewing'; }); }
@@ -682,7 +670,7 @@ function render() {
 function renderDashboard(c) {
   // Poll for new kid requests from GitHub
   pollRequests(function(hadNew) {
-    if (hadNew) { clearRequestFile(); markReviewing(); notifyPending(); render(); }
+    if (hadNew) { markReviewing(); notifyPending(); saveRequestsToGitHub(); render(); }
   });
   // Mark pending as reviewing when Dad opens overview
   markReviewing();
