@@ -2652,6 +2652,15 @@
       "amount": 1,
       "txDate": "",
       "extra": "test123"
+    },
+    {
+      "ts": "2026-06-09T21:24:20.045Z",
+      "action": "DENIED",
+      "kid": "Donald John",
+      "desc": "Test",
+      "amount": 1,
+      "txDate": "",
+      "extra": "Reason: why notr"
     }
   ],
   "requests": [
@@ -2670,11 +2679,11 @@
       "kid": "Donald John",
       "desc": "Test",
       "amount": 1,
-      "status": "reviewing",
+      "status": "denied",
       "submittedAt": "2026-06-09T21:09:59.962Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T21:24:20.045Z",
+      "reason": "why notr"
     }
   ],
-  "savedAt": "2026-06-09T21:22:54.564Z"
+  "savedAt": "2026-06-09T21:24:20.045Z"
 }
