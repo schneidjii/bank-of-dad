@@ -619,7 +619,10 @@ function approveReq(id) {
   r.status='approved'; r.resolvedAt=new Date().toISOString();
   TX.push({id:Date.now()+Math.random(),kid:r.kid,desc:r.desc,amount:r.amount,date:r.resolvedAt.split('T')[0],createdAt:r.resolvedAt,fromRequest:id});
   addLog('APPROVED',r.kid,r.desc,r.amount,'','Request ID: '+id);
-  saveState(); saveRequestsToGitHub(); render();
+  saveLocal(); // save locally immediately
+  saveRequestsToGitHub(); // write requests to GitHub first
+  setTimeout(function(){ saveToGitHub(); }, 3000); // delay main save by 3 seconds
+  render();
 }
 
 var reqSaveInProgress = false;
@@ -672,7 +675,10 @@ function denyReq(id) {
   var r=REQ.filter(function(x){return x.id===id;})[0]; if(!r) return;
   r.status='denied'; r.resolvedAt=new Date().toISOString(); r.reason=reason;
   addLog('DENIED',r.kid,r.desc,r.amount,'',reason?'Reason: '+reason:'No reason given');
-  saveState(); saveRequestsToGitHub(); render();
+  saveLocal(); // save locally immediately
+  saveRequestsToGitHub(); // write requests to GitHub first
+  setTimeout(function(){ saveToGitHub(); }, 3000); // delay main save by 3 seconds
+  render();
 }
 
 function notifyPending() {
