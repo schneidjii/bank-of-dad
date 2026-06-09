@@ -35,10 +35,10 @@
       "kid": "Donald John",
       "desc": "test also",
       "amount": -30,
-      "status": "reviewing",
+      "status": "denied",
       "submittedAt": "2026-06-09T21:33:03.044Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T21:41:29.681Z",
+      "reason": "yep"
     }
   ]
 }
