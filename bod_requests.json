@@ -55,10 +55,10 @@
       "kid": "Donald John",
       "desc": "who knows",
       "amount": 2,
-      "status": "reviewing",
+      "status": "denied",
       "submittedAt": "2026-06-09T21:58:49.736Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T21:59:27.549Z",
+      "reason": "denied'"
     }
   ]
 }
