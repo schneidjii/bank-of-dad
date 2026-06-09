@@ -9474,7 +9474,16 @@
       "amount": 7,
       "txDate": "",
       "extra": "Reason: 7"
+    },
+    {
+      "ts": "2026-06-09T22:19:36.949Z",
+      "action": "DENIED",
+      "kid": "Donald John",
+      "desc": "pppp",
+      "amount": 99999,
+      "txDate": "",
+      "extra": "Reason: 99999"
     }
   ],
-  "savedAt": "2026-06-09T22:18:10.454Z"
+  "savedAt": "2026-06-09T22:19:36.950Z"
 }
