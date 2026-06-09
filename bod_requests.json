@@ -1,14 +1,1 @@
-{
-  "requests": [
-    {
-      "id": "17810428527965662",
-      "kid": "Donald John",
-      "desc": "womp womp",
-      "amount": 99,
-      "status": "pending",
-      "submittedAt": "2026-06-09T22:07:32.466Z",
-      "resolvedAt": null,
-      "reason": ""
-    }
-  ]
-}
+{"requests":[]}
