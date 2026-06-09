@@ -105,10 +105,10 @@
       "kid": "Donald John",
       "desc": "77777",
       "amount": 777777,
-      "status": "pending",
+      "status": "denied",
       "submittedAt": "2026-06-09T22:35:03.877Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T22:35:20.002Z",
+      "reason": "777777"
     }
   ]
 }
