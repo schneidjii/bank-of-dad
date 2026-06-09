@@ -505,7 +505,7 @@ function loadFromGitHub(callback) {
       var json = JSON.parse(atob(data.content.replace(/\n/g, '')));
       TX = json.transactions || TX;
       LOG = json.log || LOG;
-      REQ = json.requests || REQ;
+      // REQ is managed separately via bod_requests.json
       saveLocal();
       setSyncStatus('ok', 'synced');
       callback(true);
@@ -517,7 +517,7 @@ function saveToGitHub() {
   var token = getToken();
   if (!token) return;
   setSyncStatus('saving');
-  var payload = { transactions: TX, log: LOG, requests: REQ, savedAt: new Date().toISOString() };
+  var payload = { transactions: TX, log: LOG, savedAt: new Date().toISOString() };
   var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
   var body = { message: 'BOD update ' + new Date().toISOString(), content: encoded, branch: GITHUB_BRANCH };
   if (ghSha) body.sha = ghSha;
@@ -634,6 +634,13 @@ function saveRequestsToGitHub() {
   if (!token) { reqSaveInProgress = false; return; }
   var REQ_API_LOCAL = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
   var snapshot = REQ.slice(); // snapshot current REQ state
+  // Safety: never write empty requests array - something went wrong
+  if (snapshot.length === 0) {
+    console.log('saveRequestsToGitHub: skipping empty REQ array');
+    reqSaveInProgress = false;
+    if (reqSavePending) saveRequestsToGitHub();
+    return;
+  }
   // Always fetch fresh SHA immediately before writing
   fetch(REQ_API_LOCAL, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Cache-Control': 'no-cache' } })
     .then(function(r) { return r.json(); })
