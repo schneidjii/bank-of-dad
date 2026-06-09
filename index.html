@@ -612,17 +612,28 @@ function approveReq(id) {
 
 function saveRequestsToGitHub() {
   var token = getToken();
-  if (!token) return;
-  var REQ_API = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
+  if (!token) { console.log('saveRequestsToGitHub: no token'); return; }
+  var REQ_API_LOCAL = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
+  console.log('saveRequestsToGitHub: writing', REQ.length, 'requests');
   // Get current SHA first
-  fetch(REQ_API, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
+  fetch(REQ_API_LOCAL, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
     .then(function(r) { return r.json(); })
     .then(function(meta) {
-      var encoded = btoa(unescape(encodeURIComponent(JSON.stringify({ requests: REQ }, null, 2))));
+      if (!meta.sha) { console.log('saveRequestsToGitHub: no SHA found', meta); return; }
+      console.log('saveRequestsToGitHub: got SHA', meta.sha);
+      var payload = { requests: REQ };
+      var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
       var body = { message: 'BOD update requests ' + new Date().toISOString(), content: encoded, sha: meta.sha, branch: 'main' };
-      return fetch(REQ_API, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      return fetch(REQ_API_LOCAL, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     })
-    .catch(function(e) { console.log('Failed to save requests:', e); });
+    .then(function(r) { if (r) return r.json(); })
+    .then(function(data) {
+      if (data) {
+        if (data.content) { console.log('saveRequestsToGitHub: success, new SHA', data.content.sha); }
+        else { console.log('saveRequestsToGitHub: write failed', data); }
+      }
+    })
+    .catch(function(e) { console.log('saveRequestsToGitHub: error', e); });
 }
 
 function denyReq(id) {
