@@ -1,0 +1,2640 @@
+{
+  "transactions": [
+    {
+      "id": "s0",
+      "kid": "Donald John",
+      "desc": "Beginning balance",
+      "amount": 58,
+      "date": "2021-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s1",
+      "kid": "Donald John",
+      "desc": "Report Card Reward",
+      "amount": 100,
+      "date": "2021-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s2",
+      "kid": "Donald John",
+      "desc": "End of School Reward",
+      "amount": 50,
+      "date": "2021-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s3",
+      "kid": "Donald John",
+      "desc": "Minecraft Ninja Mashup",
+      "amount": -10,
+      "date": "2021-06-15",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s4",
+      "kid": "Donald John",
+      "desc": "space pioneer switch",
+      "amount": -2,
+      "date": "2021-07-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s5",
+      "kid": "Donald John",
+      "desc": "left door open",
+      "amount": -1,
+      "date": "2021-07-10",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s6",
+      "kid": "Donald John",
+      "desc": "left door open",
+      "amount": -1,
+      "date": "2021-07-15",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s7",
+      "kid": "Donald John",
+      "desc": "didn't put a liner in",
+      "amount": -1,
+      "date": "2021-07-20",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s8",
+      "kid": "Donald John",
+      "desc": "left door open",
+      "amount": -1,
+      "date": "2021-07-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s9",
+      "kid": "Donald John",
+      "desc": "Minecraft Dungeons",
+      "amount": -20,
+      "date": "2021-08-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s10",
+      "kid": "Donald John",
+      "desc": "Robux",
+      "amount": -5,
+      "date": "2021-09-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s11",
+      "kid": "Donald John",
+      "desc": "Amoung Us (Switch)",
+      "amount": -5,
+      "date": "2021-10-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s12",
+      "kid": "Donald John",
+      "desc": "FNAF Help Wanted - Switch",
+      "amount": -30,
+      "date": "2021-11-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s13",
+      "kid": "Donald John",
+      "desc": "Fortnite Battle Pass",
+      "amount": -8,
+      "date": "2021-12-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s14",
+      "kid": "Donald John",
+      "desc": "new FNAF game (phone)",
+      "amount": -5,
+      "date": "2022-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s15",
+      "kid": "Donald John",
+      "desc": "800 Robux for Lion",
+      "amount": -9,
+      "date": "2022-02-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s16",
+      "kid": "Donald John",
+      "desc": "4 failed spelling tests",
+      "amount": -40,
+      "date": "2022-03-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s17",
+      "kid": "Donald John",
+      "desc": "punishment*",
+      "amount": -20,
+      "date": "2022-04-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s18",
+      "kid": "Donald John",
+      "desc": "Deposit Cash",
+      "amount": 13.15,
+      "date": "2022-05-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s19",
+      "kid": "Donald John",
+      "desc": "five nights at Freddy's security breach",
+      "amount": -40,
+      "date": "2022-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s20",
+      "kid": "Donald John",
+      "desc": "Kelsey Present",
+      "amount": 40,
+      "date": "2022-07-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s21",
+      "kid": "Donald John",
+      "desc": "Population One (Quest 2)",
+      "amount": -30,
+      "date": "2022-08-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s22",
+      "kid": "Donald John",
+      "desc": "Robux",
+      "amount": -11,
+      "date": "2022-09-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s23",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -11,
+      "date": "2022-05-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s24",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2022-05-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s25",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -12.51,
+      "date": "2022-05-26",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s26",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2022-06-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s27",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 12,
+      "date": "2022-06-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s28",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2022-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s29",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 12,
+      "date": "2022-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s30",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2022-06-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s31",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 4,
+      "date": "2022-06-30",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s32",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2022-07-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s33",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -15,
+      "date": "2022-07-09",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s34",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-07-14",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s35",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-07-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s36",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -10,
+      "date": "2022-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s37",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-08-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s38",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 31.79,
+      "date": "2022-08-28",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s39",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-08-14",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s40",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-09-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s41",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2022-09-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s42",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s43",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-20",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s44",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-09-22",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s45",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-26",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s46",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s47",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s48",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s49",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s50",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -20,
+      "date": "2022-10-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s51",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -4,
+      "date": "2022-10-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s52",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-10-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s53",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-10-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s54",
+      "kid": "Donald John",
+      "desc": "Gavin bat dragon bet / KLS smartwatch payoff",
+      "amount": -3,
+      "date": "2022-10-07",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s55",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -10,
+      "date": "2022-10-14",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s56",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-10-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s57",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2022-11-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s58",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-11-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s59",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-11-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s60",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2023-01-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s61",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2023-01-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s62",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 21.5,
+      "date": "2023-01-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s63",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -65,
+      "date": "2023-03-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s64",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2023-03-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s65",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2023-03-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s66",
+      "kid": "Donald John",
+      "desc": "Jen's BDay bet",
+      "amount": 52,
+      "date": "2023-03-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s67",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2023-04-10",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s68",
+      "kid": "Donald John",
+      "desc": "FNAF",
+      "amount": -15,
+      "date": "2023-04-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s69",
+      "kid": "Donald John",
+      "desc": "Customized Xbox controller",
+      "amount": -80.54,
+      "date": "2023-05-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s70",
+      "kid": "Donald John",
+      "desc": "John giving adopt me pets to Kenly",
+      "amount": 15,
+      "date": "2023-05-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s71",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 12.25,
+      "date": "2023-06-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s72",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2023-07-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s73",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 30,
+      "date": "2023-07-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s74",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s75",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s76",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s77",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2023-08-20",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s78",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2023-08-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s79",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2023-08-28",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s80",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2023-09-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s81",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s82",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s83",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2024-03-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s84",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 80,
+      "date": "2024-04-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s85",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2024-04-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s86",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2024-07-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s87",
+      "kid": "Donald John",
+      "desc": "farm",
+      "amount": 45,
+      "date": "2024-06-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s88",
+      "kid": "Donald John",
+      "desc": "lawn",
+      "amount": 40,
+      "date": "2024-06-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s89",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 50,
+      "date": "2024-07-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s90",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2024-08-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s91",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2024-10-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s92",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 250,
+      "date": "2024-08-24",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s93",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 60,
+      "date": "2024-10-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s94",
+      "kid": "Donald John",
+      "desc": "Farm cut July 4",
+      "amount": 75,
+      "date": "2024-12-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s95",
+      "kid": "Donald John",
+      "desc": "wood",
+      "amount": 30,
+      "date": "2025-02-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s96",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 174.36,
+      "date": "2025-02-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s97",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2025-02-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s98",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s99",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1150,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s100",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -4,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s101",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 80,
+      "date": "2025-03-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s102",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2025-03-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s103",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -10,
+      "date": "2025-09-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s104",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2025-08-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s105",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2025-11-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s106",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -39.99,
+      "date": "2025-11-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s107",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": -20,
+      "date": "2025-12-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s108",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2026-01-24",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s109",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 25,
+      "date": "2026-02-22",
+      "createdAt": "2021-01-01T00:00:00Z",
+      "editedAt": "2026-05-27T22:59:16.095Z"
+    },
+    {
+      "id": "s110",
+      "kid": "Gavin",
+      "desc": "Beginning balance",
+      "amount": 110,
+      "date": "2021-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s111",
+      "kid": "Gavin",
+      "desc": "Report Card Reward",
+      "amount": 125,
+      "date": "2021-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s112",
+      "kid": "Gavin",
+      "desc": "End of School Reward",
+      "amount": 50,
+      "date": "2021-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s113",
+      "kid": "Gavin",
+      "desc": "Minecraft Ninja Mashup",
+      "amount": -10,
+      "date": "2021-06-15",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s114",
+      "kid": "Gavin",
+      "desc": "Super Mario Maker 2",
+      "amount": -60,
+      "date": "2021-07-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s115",
+      "kid": "Gavin",
+      "desc": "left door open",
+      "amount": -1,
+      "date": "2021-07-15",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s116",
+      "kid": "Gavin",
+      "desc": "Xbox Gamertag Change",
+      "amount": -10,
+      "date": "2021-08-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s117",
+      "kid": "Gavin",
+      "desc": "Minecraft Dungeons",
+      "amount": -20,
+      "date": "2021-09-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s118",
+      "kid": "Gavin",
+      "desc": "Amoung Us (Switch)",
+      "amount": -5,
+      "date": "2021-10-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s119",
+      "kid": "Gavin",
+      "desc": "new FNAF game (phone)",
+      "amount": -5,
+      "date": "2022-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s120",
+      "kid": "Gavin",
+      "desc": "Gavin purchased Fortnite skin for Donald John",
+      "amount": -16,
+      "date": "2021-07-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s121",
+      "kid": "Gavin",
+      "desc": "Frozen Legends pack for fortnite",
+      "amount": -20,
+      "date": "2022-03-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s122",
+      "kid": "Gavin",
+      "desc": "Deposit Cash",
+      "amount": 30,
+      "date": "2022-04-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s123",
+      "kid": "Gavin",
+      "desc": "Books Read",
+      "amount": 4,
+      "date": "2022-05-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s124",
+      "kid": "Gavin",
+      "desc": "Kelsey Present",
+      "amount": 40,
+      "date": "2022-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s125",
+      "kid": "Gavin",
+      "desc": "Population One (Quest 2)",
+      "amount": -30,
+      "date": "2022-07-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s126",
+      "kid": "Gavin",
+      "desc": "Ultimate Custom Night (mobile game)",
+      "amount": -3,
+      "date": "2022-08-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s127",
+      "kid": "Gavin",
+      "desc": "Easter Egg Hunt",
+      "amount": 6,
+      "date": "2022-04-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s128",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 15,
+      "date": "2022-05-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s129",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 0.75,
+      "date": "2022-05-26",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s130",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-06-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s131",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 1.5,
+      "date": "2022-06-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s132",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2022-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s133",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -4,
+      "date": "2022-06-30",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s134",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-07-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s135",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-07-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s136",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-07-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s137",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-07-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s138",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-07-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s139",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s140",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-08-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s141",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-08-14",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s142",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 1.25,
+      "date": "2022-08-29",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s143",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-09-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s144",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2022-09-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s145",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s146",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-20",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s147",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-09-22",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s148",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-23",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s149",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-26",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s150",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -3,
+      "date": "2022-09-23",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s151",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s152",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s153",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s154",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s155",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s156",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s157",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -20,
+      "date": "2022-10-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s158",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 4,
+      "date": "2022-10-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s159",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-10-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s160",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-10-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s161",
+      "kid": "Gavin",
+      "desc": "Bat dragon bet / KLS smartwatch / Gavin cube payoff",
+      "amount": -20,
+      "date": "2022-10-07",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s162",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2022-11-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s163",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-11-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s164",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-01-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s165",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -3,
+      "date": "2023-01-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s166",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -21.5,
+      "date": "2023-01-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s167",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2023-01-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s168",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-03-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s169",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2023-07-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s170",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -4,
+      "date": "2023-05-28",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s171",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -13.77,
+      "date": "2023-06-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s172",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 47.22,
+      "date": "2023-06-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s173",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 23,
+      "date": "2023-06-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s174",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2023-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s175",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -8.47,
+      "date": "2023-07-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s176",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2023-07-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s177",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2023-07-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s178",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -3,
+      "date": "2023-07-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s179",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s180",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s181",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s182",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 6.25,
+      "date": "2023-08-20",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s183",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -71,
+      "date": "2023-09-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s184",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2024-03-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s185",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s186",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s187",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s188",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s189",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s190",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -4,
+      "date": "2023-09-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s191",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2024-01-30",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s192",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2024-01-30",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s193",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2024-01-30",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s194",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2024-04-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s195",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -23,
+      "date": "2024-07-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s196",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 40,
+      "date": "2024-08-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s197",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -25,
+      "date": "2024-10-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s198",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -9,
+      "date": "2024-08-24",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s199",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -10,
+      "date": "2024-10-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s200",
+      "kid": "Gavin",
+      "desc": "wood",
+      "amount": 20,
+      "date": "2025-02-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s201",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2025-02-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s202",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2025-02-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s203",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 0.77,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s204",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 50,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s205",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s206",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2025-03-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s207",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -5,
+      "date": "2025-03-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s208",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -4,
+      "date": "2025-09-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s209",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -10,
+      "date": "2025-08-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s210",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -20,
+      "date": "2025-11-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s211",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -18.64,
+      "date": "2025-11-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s212",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -16,
+      "date": "2025-12-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s213",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -12,
+      "date": "2026-01-24",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s214",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -40,
+      "date": "2026-02-22",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s215",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 25,
+      "date": "2026-04-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s216",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 25,
+      "date": "2026-04-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s217",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": -50,
+      "date": "2026-04-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s218",
+      "kid": "Gavin",
+      "desc": "transaction",
+      "amount": 25,
+      "date": "2026-05-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s219",
+      "kid": "Kenleigh",
+      "desc": "Beginning balance",
+      "amount": 10,
+      "date": "2021-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s220",
+      "kid": "Kenleigh",
+      "desc": "Report Card Reward",
+      "amount": 6,
+      "date": "2021-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s221",
+      "kid": "Kenleigh",
+      "desc": "End of School Reward",
+      "amount": 7,
+      "date": "2021-06-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s222",
+      "kid": "Kenleigh",
+      "desc": "Minecraft Ninja Mashup",
+      "amount": 2,
+      "date": "2021-06-15",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s223",
+      "kid": "Kenleigh",
+      "desc": "Super Mario Maker 2",
+      "amount": 1,
+      "date": "2021-07-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s224",
+      "kid": "Kenleigh",
+      "desc": "space pioneer switch",
+      "amount": 1,
+      "date": "2021-07-10",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s225",
+      "kid": "Kenleigh",
+      "desc": "Cash Deposit",
+      "amount": 7.71,
+      "date": "2022-04-10",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s226",
+      "kid": "Kenleigh",
+      "desc": "Easter Egg Hunt",
+      "amount": 1,
+      "date": "2022-04-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s227",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-05-09",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s228",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -15,
+      "date": "2022-05-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s229",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -0.75,
+      "date": "2022-05-26",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s230",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -1.5,
+      "date": "2022-06-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s231",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s232",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s233",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -0.5,
+      "date": "2022-06-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s234",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-06-30",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s235",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-07-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s236",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-07-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s237",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-07-09",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s238",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 3,
+      "date": "2022-07-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s239",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -2,
+      "date": "2022-07-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s240",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-07-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s241",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-07-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s242",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -1,
+      "date": "2022-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s243",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 7,
+      "date": "2022-08-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s244",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1.26,
+      "date": "2022-08-28",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s245",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-12",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s246",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-23",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s247",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 0.25,
+      "date": "2022-09-26",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s248",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s249",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2022-09-27",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s250",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-11-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s251",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2023-01-17",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s252",
+      "kid": "Kenleigh",
+      "desc": "Adopt me pets from John",
+      "amount": -15,
+      "date": "2023-05-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s253",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 12,
+      "date": "2023-06-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s254",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 8,
+      "date": "2023-06-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s255",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 6,
+      "date": "2023-06-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s256",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s257",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2023-08-03",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s258",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2023-08-20",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s259",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 13,
+      "date": "2023-09-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s260",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2024-03-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s261",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2024-07-02",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s262",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2024-10-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s263",
+      "kid": "Kenleigh",
+      "desc": "Farm cut July 4",
+      "amount": 12,
+      "date": "2024-12-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s264",
+      "kid": "Kenleigh",
+      "desc": "wood",
+      "amount": 65,
+      "date": "2025-02-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s265",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 50,
+      "date": "2025-02-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s266",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -115,
+      "date": "2025-02-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s267",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 50,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s268",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 25,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s269",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2025-03-04",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s270",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2025-03-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s271",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2025-03-05",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s272",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2025-09-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s273",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 15,
+      "date": "2025-08-19",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s274",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2025-11-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s275",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 13,
+      "date": "2025-11-21",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s276",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2025-12-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s277",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2026-01-24",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s278",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2026-02-22",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s279",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 10,
+      "date": "2026-04-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s280",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 0.53,
+      "date": "2026-04-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s281",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2026-04-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s282",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 4,
+      "date": "2026-05-16",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s283",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 21,
+      "date": "2026-05-10",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s284",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 2,
+      "date": "2026-05-18",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s285",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": -13.76,
+      "date": "2026-05-18",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s286",
+      "kid": "Kenleigh",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2026-05-18",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s287",
+      "kid": "Emery",
+      "desc": "Beginning balance",
+      "amount": 0,
+      "date": "2021-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s288",
+      "kid": "Emery",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-07-14",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s289",
+      "kid": "Emery",
+      "desc": "transaction",
+      "amount": 1,
+      "date": "2022-07-08",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s290",
+      "kid": "Emery",
+      "desc": "transaction",
+      "amount": 5,
+      "date": "2022-08-11",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s291",
+      "kid": "Emery",
+      "desc": "transaction",
+      "amount": 6,
+      "date": "2022-09-06",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s292",
+      "kid": "Emery",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2025-12-13",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s293",
+      "kid": "Emery",
+      "desc": "transaction",
+      "amount": 20,
+      "date": "2026-01-24",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s294",
+      "kid": "Elaina",
+      "desc": "Beginning balance",
+      "amount": 0,
+      "date": "2021-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s295",
+      "kid": "Elaina",
+      "desc": "Tooth Fairy (1st tooth)",
+      "amount": 6,
+      "date": "2026-05-25",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": "s296",
+      "kid": "Kelsey",
+      "desc": "Beginning balance",
+      "amount": 0,
+      "date": "2021-01-01",
+      "createdAt": "2021-01-01T00:00:00Z"
+    },
+    {
+      "id": 1779889694888.9568,
+      "kid": "Kenleigh",
+      "desc": "Above & Beyond helping Mom clean",
+      "amount": 10,
+      "date": "2026-05-25",
+      "createdAt": "2026-05-27T13:48:14.888Z"
+    },
+    {
+      "id": 1779889715254.8445,
+      "kid": "Kenleigh",
+      "desc": "bet",
+      "amount": 1,
+      "date": "2026-05-10",
+      "createdAt": "2026-05-27T13:48:35.254Z"
+    },
+    {
+      "id": 1779927605232.5916,
+      "kid": "Donald John",
+      "desc": "VISA gift card transfer",
+      "amount": 50,
+      "date": "2026-05-28",
+      "createdAt": "2026-05-28T00:20:05.232Z"
+    },
+    {
+      "id": 1779927622937.1738,
+      "kid": "Donald John",
+      "desc": "DJ3 Type A",
+      "amount": -0.01,
+      "date": "2026-05-28",
+      "createdAt": "2026-05-28T00:20:22.937Z"
+    },
+    {
+      "id": 1780088681327.5564,
+      "kid": "Donald John",
+      "desc": "Grammy & PawPaw Bday",
+      "amount": 50,
+      "date": "2026-05-29",
+      "createdAt": "2026-05-29T21:04:41.327Z"
+    },
+    {
+      "id": 1780089327140.5972,
+      "kid": "Donald John",
+      "desc": "AYN Thor",
+      "amount": -343,
+      "date": "2026-05-29",
+      "createdAt": "2026-05-29T21:15:27.141Z"
+    },
+    {
+      "id": 1780089390923.3416,
+      "kid": "Donald John",
+      "desc": "3.5 lawn mowes + edging",
+      "amount": 163,
+      "date": "2026-05-29",
+      "createdAt": "2026-05-29T21:16:30.923Z"
+    },
+    {
+      "id": 1780250550794.7703,
+      "kid": "Donald John",
+      "desc": "Washer Help",
+      "amount": 2.5,
+      "date": "2026-05-31",
+      "createdAt": "2026-05-31T18:02:30.794Z"
+    },
+    {
+      "id": 1780250597453.1697,
+      "kid": "Gavin",
+      "desc": "Washer Help",
+      "amount": 2.5,
+      "date": "2026-05-31",
+      "createdAt": "2026-05-31T18:03:17.453Z"
+    },
+    {
+      "id": 1780250606916.5583,
+      "kid": "Kenleigh",
+      "desc": "Washer Help",
+      "amount": 2.5,
+      "date": "2026-05-31",
+      "createdAt": "2026-05-31T18:03:26.916Z"
+    },
+    {
+      "id": 1781014370418.7598,
+      "kid": "Gavin",
+      "desc": "Steam credits",
+      "amount": -5,
+      "date": "2026-06-08",
+      "createdAt": "2026-06-09T14:12:50.419Z"
+    },
+    {
+      "id": 1781014397275.9927,
+      "kid": "Donald John",
+      "desc": "KLS bet",
+      "amount": 5,
+      "date": "2026-06-07",
+      "createdAt": "2026-06-09T14:13:17.276Z"
+    },
+    {
+      "id": 1781014412742.019,
+      "kid": "Kenleigh",
+      "desc": "DJ3 bet",
+      "amount": -5,
+      "date": "2026-06-07",
+      "createdAt": "2026-06-09T14:13:32.742Z"
+    },
+    {
+      "id": 1781014438256.8838,
+      "kid": "Donald John",
+      "desc": "Cash Dep",
+      "amount": 10,
+      "date": "2026-06-08",
+      "createdAt": "2026-06-09T14:13:58.256Z"
+    }
+  ],
+  "log": [
+    {
+      "ts": "2026-05-27T13:48:14.888Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "Above & Beyond helping Mom clean",
+      "amount": 10,
+      "txDate": "2026-05-25",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-27T13:48:35.254Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "bet",
+      "amount": 1,
+      "txDate": "2026-05-10",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-27T22:54:23.244Z",
+      "action": "EDIT",
+      "kid": "Donald John",
+      "desc": "transaction ?",
+      "amount": 25,
+      "txDate": "2026-02-22",
+      "extra": "Was: \"transaction\" $25.00 on 2026-02-22"
+    },
+    {
+      "ts": "2026-05-27T22:59:16.095Z",
+      "action": "EDIT",
+      "kid": "Donald John",
+      "desc": "transaction",
+      "amount": 25,
+      "txDate": "2026-02-22",
+      "extra": "Was: \"transaction ?\" $25.00 on 2026-02-22"
+    },
+    {
+      "ts": "2026-05-28T00:20:05.232Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "VISA gift card transfer",
+      "amount": 50,
+      "txDate": "2026-05-28",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-28T00:20:22.937Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "DJ3 Type A",
+      "amount": -0.01,
+      "txDate": "2026-05-28",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-29T21:04:41.328Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "Grammy & PawPaw Bday",
+      "amount": 50,
+      "txDate": "2026-05-29",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-29T21:15:27.142Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "AYN Thor",
+      "amount": -343,
+      "txDate": "2026-05-29",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-29T21:16:30.923Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "3.5 lawn mowes + edging",
+      "amount": 163,
+      "txDate": "2026-05-29",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-31T18:02:30.795Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "Washer Help",
+      "amount": 2.5,
+      "txDate": "2026-05-31",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-31T18:03:17.453Z",
+      "action": "CREATE",
+      "kid": "Gavin",
+      "desc": "Washer Help",
+      "amount": 2.5,
+      "txDate": "2026-05-31",
+      "extra": ""
+    },
+    {
+      "ts": "2026-05-31T18:03:26.916Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "Washer Help",
+      "amount": 2.5,
+      "txDate": "2026-05-31",
+      "extra": ""
+    },
+    {
+      "ts": "2026-06-09T14:12:50.419Z",
+      "action": "CREATE",
+      "kid": "Gavin",
+      "desc": "Steam credits",
+      "amount": -5,
+      "txDate": "2026-06-08",
+      "extra": ""
+    },
+    {
+      "ts": "2026-06-09T14:13:17.276Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "KLS bet",
+      "amount": 5,
+      "txDate": "2026-06-07",
+      "extra": ""
+    },
+    {
+      "ts": "2026-06-09T14:13:32.742Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "DJ3 bet",
+      "amount": -5,
+      "txDate": "2026-06-07",
+      "extra": ""
+    },
+    {
+      "ts": "2026-06-09T14:13:58.256Z",
+      "action": "CREATE",
+      "kid": "Donald John",
+      "desc": "Cash Dep",
+      "amount": 10,
+      "txDate": "2026-06-08",
+      "extra": ""
+    }
+  ],
+  "savedAt": "2026-06-09T14:13:58.257Z"
+}
