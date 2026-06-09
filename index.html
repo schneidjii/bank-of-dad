@@ -617,30 +617,42 @@ function approveReq(id) {
   saveState(); saveRequestsToGitHub(); render();
 }
 
+var reqSaveInProgress = false;
+var reqSavePending = false;
+
 function saveRequestsToGitHub() {
+  // Prevent concurrent writes - queue at most one pending save
+  if (reqSaveInProgress) { reqSavePending = true; return; }
+  reqSaveInProgress = true;
+  reqSavePending = false;
   var token = getToken();
-  if (!token) { console.log('saveRequestsToGitHub: no token'); return; }
+  if (!token) { reqSaveInProgress = false; return; }
   var REQ_API_LOCAL = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
-  console.log('saveRequestsToGitHub: writing', REQ.length, 'requests');
-  // Get current SHA first
-  fetch(REQ_API_LOCAL, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
+  var snapshot = REQ.slice(); // snapshot current REQ state
+  // Always fetch fresh SHA immediately before writing
+  fetch(REQ_API_LOCAL, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Cache-Control': 'no-cache' } })
     .then(function(r) { return r.json(); })
     .then(function(meta) {
-      if (!meta.sha) { console.log('saveRequestsToGitHub: no SHA found', meta); return; }
-      console.log('saveRequestsToGitHub: got SHA', meta.sha);
-      var payload = { requests: REQ };
-      var encoded = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 2))));
+      if (!meta.sha) throw new Error('no SHA');
+      var encoded = btoa(unescape(encodeURIComponent(JSON.stringify({ requests: snapshot }, null, 2))));
       var body = { message: 'BOD update requests ' + new Date().toISOString(), content: encoded, sha: meta.sha, branch: 'main' };
       return fetch(REQ_API_LOCAL, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
     })
-    .then(function(r) { if (r) return r.json(); })
+    .then(function(r) { return r.json(); })
     .then(function(data) {
-      if (data) {
-        if (data.content) { console.log('saveRequestsToGitHub: success, new SHA', data.content.sha); }
-        else { console.log('saveRequestsToGitHub: write failed', data); }
+      reqSaveInProgress = false;
+      if (data && data.content) {
+        setSyncStatus('ok', 'synced');
+        if (reqSavePending) saveRequestsToGitHub();
+      } else {
+        setSyncStatus('err', 'req sync failed');
       }
     })
-    .catch(function(e) { console.log('saveRequestsToGitHub: error', e); });
+    .catch(function(e) {
+      reqSaveInProgress = false;
+      setSyncStatus('err', 'req sync error');
+      if (reqSavePending) setTimeout(saveRequestsToGitHub, 2000);
+    });
 }
 
 function denyReq(id) {
