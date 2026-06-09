@@ -2688,6 +2688,15 @@
       "amount": -30,
       "txDate": "",
       "extra": "Reason: y"
+    },
+    {
+      "ts": "2026-06-09T21:45:06.281Z",
+      "action": "DENIED",
+      "kid": "Donald John",
+      "desc": "idk",
+      "amount": 5,
+      "txDate": "",
+      "extra": "Reason: idk resp"
     }
   ],
   "requests": [
@@ -2730,7 +2739,17 @@
       "submittedAt": "2026-06-09T21:33:03.044Z",
       "resolvedAt": "2026-06-09T21:41:55.207Z",
       "reason": "y"
+    },
+    {
+      "id": "17810414121732404",
+      "kid": "Donald John",
+      "desc": "idk",
+      "amount": 5,
+      "status": "denied",
+      "submittedAt": "2026-06-09T21:43:32.067Z",
+      "resolvedAt": "2026-06-09T21:45:06.281Z",
+      "reason": "idk resp"
     }
   ],
-  "savedAt": "2026-06-09T21:41:55.207Z"
+  "savedAt": "2026-06-09T21:45:06.282Z"
 }
