@@ -9510,7 +9510,16 @@
       "amount": 99999,
       "txDate": "",
       "extra": "17810435607014320"
+    },
+    {
+      "ts": "2026-06-09T22:29:53.913Z",
+      "action": "DENIED",
+      "kid": "Donald John",
+      "desc": "gggg",
+      "amount": 88888,
+      "txDate": "",
+      "extra": "Reason: 888888"
     }
   ],
-  "savedAt": "2026-06-09T22:23:11.404Z"
+  "savedAt": "2026-06-09T22:29:56.915Z"
 }
