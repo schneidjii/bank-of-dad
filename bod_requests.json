@@ -85,10 +85,10 @@
       "kid": "Donald John",
       "desc": "pppp",
       "amount": 99999,
-      "status": "reviewing",
+      "status": "denied",
       "submittedAt": "2026-06-09T22:19:20.563Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T22:26:13.889Z",
+      "reason": "999999999999"
     }
   ]
 }
