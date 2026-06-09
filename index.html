@@ -572,20 +572,27 @@ var REQ_RAW = 'https://raw.githubusercontent.com/schneidjii/bank-of-dad/main/bod
 var reqSha = null;
 
 function pollRequests(cb) {
-  fetch(REQ_RAW + '?t=' + Date.now())
+  var token = getToken();
+  if (!token) { if (cb) cb(false); return; }
+  // Use API endpoint (not raw) to bypass CDN cache
+  fetch(REQ_API, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
     .then(function(r) { if (!r.ok) throw new Error('no file'); return r.json(); })
-    .then(function(data) {
-      var incoming = data.requests || [];
+    .then(function(meta) {
+      if (!meta.content) throw new Error('no content');
+      var decoded = JSON.parse(atob(meta.content.replace(/\n/g, '')));
+      var incoming = decoded.requests || [];
       var changed = false;
+      // Sync all incoming - update existing status or add new
       incoming.forEach(function(r) {
-        var exists = false;
-        for (var i = 0; i < REQ.length; i++) { if (REQ[i].id === r.id) { exists = true; break; } }
-        if (!exists) { REQ.push(r); changed = true; }
+        var existing = null;
+        for (var i = 0; i < REQ.length; i++) { if (REQ[i].id === r.id) { existing = REQ[i]; break; } }
+        if (!existing) { REQ.push(r); changed = true; }
+        else if (existing.status !== r.status) { existing.status = r.status; existing.reason = r.reason; existing.resolvedAt = r.resolvedAt; changed = true; }
       });
       if (changed) { saveLocal(); if (cb) cb(true); }
       else { if (cb) cb(false); }
     })
-    .catch(function() { if (cb) cb(false); });
+    .catch(function(e) { console.log('pollRequests error:', e); if (cb) cb(false); });
 }
 
 // clearRequestFile removed - requests persist with status
