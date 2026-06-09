@@ -2679,6 +2679,15 @@
       "amount": -30,
       "txDate": "",
       "extra": "17810407831832826"
+    },
+    {
+      "ts": "2026-06-09T21:41:55.207Z",
+      "action": "DENIED",
+      "kid": "Donald John",
+      "desc": "test also",
+      "amount": -30,
+      "txDate": "",
+      "extra": "Reason: y"
     }
   ],
   "requests": [
@@ -2717,11 +2726,11 @@
       "kid": "Donald John",
       "desc": "test also",
       "amount": -30,
-      "status": "reviewing",
+      "status": "denied",
       "submittedAt": "2026-06-09T21:33:03.044Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T21:41:55.207Z",
+      "reason": "y"
     }
   ],
-  "savedAt": "2026-06-09T21:41:03.943Z"
+  "savedAt": "2026-06-09T21:41:55.207Z"
 }
