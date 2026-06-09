@@ -9456,6 +9456,15 @@
       "amount": 99,
       "txDate": "",
       "extra": "17810428527965662"
+    },
+    {
+      "ts": "2026-06-09T22:11:14.683Z",
+      "action": "DENIED",
+      "kid": "Donald John",
+      "desc": "womp womp",
+      "amount": 99,
+      "txDate": "",
+      "extra": "Reason: 99"
     }
   ],
   "requests": [
@@ -9534,11 +9543,11 @@
       "kid": "Donald John",
       "desc": "womp womp",
       "amount": 99,
-      "status": "reviewing",
+      "status": "denied",
       "submittedAt": "2026-06-09T22:07:32.466Z",
-      "resolvedAt": null,
-      "reason": ""
+      "resolvedAt": "2026-06-09T22:11:14.683Z",
+      "reason": "99"
     }
   ],
-  "savedAt": "2026-06-09T22:09:49.097Z"
+  "savedAt": "2026-06-09T22:11:14.684Z"
 }
