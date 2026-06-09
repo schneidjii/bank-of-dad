@@ -619,7 +619,22 @@ function approveReq(id) {
   r.status='approved'; r.resolvedAt=new Date().toISOString();
   TX.push({id:Date.now()+Math.random(),kid:r.kid,desc:r.desc,amount:r.amount,date:r.resolvedAt.split('T')[0],createdAt:r.resolvedAt,fromRequest:id});
   addLog('APPROVED',r.kid,r.desc,r.amount,'','Request ID: '+id);
-  saveState(); render();
+  saveState(); saveRequestsToGitHub(); render();
+}
+
+function saveRequestsToGitHub() {
+  var token = getToken();
+  if (!token) return;
+  var REQ_API = 'https://api.github.com/repos/schneidjii/bank-of-dad/contents/bod_requests.json';
+  // Get current SHA first
+  fetch(REQ_API, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } })
+    .then(function(r) { return r.json(); })
+    .then(function(meta) {
+      var encoded = btoa(unescape(encodeURIComponent(JSON.stringify({ requests: REQ }, null, 2))));
+      var body = { message: 'BOD update requests ' + new Date().toISOString(), content: encoded, sha: meta.sha, branch: 'main' };
+      return fetch(REQ_API, { method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    })
+    .catch(function(e) { console.log('Failed to save requests:', e); });
 }
 
 function denyReq(id) {
@@ -627,7 +642,7 @@ function denyReq(id) {
   var r=REQ.filter(function(x){return x.id===id;})[0]; if(!r) return;
   r.status='denied'; r.resolvedAt=new Date().toISOString(); r.reason=reason;
   addLog('DENIED',r.kid,r.desc,r.amount,'',reason?'Reason: '+reason:'No reason given');
-  saveState(); render();
+  saveState(); saveRequestsToGitHub(); render();
 }
 
 function notifyPending() {
