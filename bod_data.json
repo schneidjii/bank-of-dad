@@ -2496,6 +2496,14 @@
       "amount": 1,
       "date": "2026-07-03",
       "createdAt": "2026-07-03T18:10:56.677Z"
+    },
+    {
+      "id": 1783102266518.877,
+      "kid": "Emery",
+      "desc": "Finding Mom's glasses",
+      "amount": 2,
+      "date": "2026-07-03",
+      "createdAt": "2026-07-03T18:11:06.518Z"
     }
   ],
   "log": [
@@ -9554,7 +9562,16 @@
       "amount": 1,
       "txDate": "2026-07-03",
       "extra": ""
+    },
+    {
+      "ts": "2026-07-03T18:11:06.518Z",
+      "action": "CREATE",
+      "kid": "Emery",
+      "desc": "Finding Mom's glasses",
+      "amount": 2,
+      "txDate": "2026-07-03",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-07-03T18:10:56.682Z"
+  "savedAt": "2026-07-03T18:11:06.521Z"
 }
