@@ -2428,10 +2428,11 @@
     {
       "id": 1780089390923.3416,
       "kid": "Donald John",
-      "desc": "3.5 lawn mowes + edging",
+      "desc": "2.5 lawn mowes + edging",
       "amount": 163,
       "date": "2026-05-29",
-      "createdAt": "2026-05-29T21:16:30.923Z"
+      "createdAt": "2026-05-29T21:16:30.923Z",
+      "editedAt": "2026-07-03T18:12:51.064Z"
     },
     {
       "id": 1780250550794.7703,
@@ -9605,7 +9606,16 @@
       "amount": 1,
       "txDate": "2026-07-03",
       "extra": ""
+    },
+    {
+      "ts": "2026-07-03T18:12:51.064Z",
+      "action": "EDIT",
+      "kid": "Donald John",
+      "desc": "2.5 lawn mowes + edging",
+      "amount": 163,
+      "txDate": "2026-05-29",
+      "extra": "Was: \"3.5 lawn mowes + edging\" $163.00 on 2026-05-29"
     }
   ],
-  "savedAt": "2026-07-03T18:11:25.960Z"
+  "savedAt": "2026-07-03T18:12:51.069Z"
 }
