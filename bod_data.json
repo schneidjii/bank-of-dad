@@ -2488,6 +2488,14 @@
       "amount": 10,
       "date": "2026-06-08",
       "createdAt": "2026-06-09T14:13:58.256Z"
+    },
+    {
+      "id": 1783102256677.6653,
+      "kid": "Kenleigh",
+      "desc": "Finding Mom's glasses",
+      "amount": 1,
+      "date": "2026-07-03",
+      "createdAt": "2026-07-03T18:10:56.677Z"
     }
   ],
   "log": [
@@ -9537,7 +9545,16 @@
       "amount": 5555,
       "txDate": "",
       "extra": "Reason: 55555"
+    },
+    {
+      "ts": "2026-07-03T18:10:56.677Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "Finding Mom's glasses",
+      "amount": 1,
+      "txDate": "2026-07-03",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-06-09T22:39:19.571Z"
+  "savedAt": "2026-07-03T18:10:56.682Z"
 }
