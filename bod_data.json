@@ -2504,6 +2504,14 @@
       "amount": 2,
       "date": "2026-07-03",
       "createdAt": "2026-07-03T18:11:06.518Z"
+    },
+    {
+      "id": 1783102275740.1897,
+      "kid": "Elaina",
+      "desc": "Finding Mom's glasses",
+      "amount": 1,
+      "date": "2026-07-03",
+      "createdAt": "2026-07-03T18:11:15.740Z"
     }
   ],
   "log": [
@@ -9571,7 +9579,16 @@
       "amount": 2,
       "txDate": "2026-07-03",
       "extra": ""
+    },
+    {
+      "ts": "2026-07-03T18:11:15.740Z",
+      "action": "CREATE",
+      "kid": "Elaina",
+      "desc": "Finding Mom's glasses",
+      "amount": 1,
+      "txDate": "2026-07-03",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-07-03T18:11:06.521Z"
+  "savedAt": "2026-07-03T18:11:15.744Z"
 }
