@@ -2512,6 +2512,14 @@
       "amount": 1,
       "date": "2026-07-03",
       "createdAt": "2026-07-03T18:11:15.740Z"
+    },
+    {
+      "id": 1783102285952.033,
+      "kid": "Kelsey",
+      "desc": "Finding Mom's glasses",
+      "amount": 1,
+      "date": "2026-07-03",
+      "createdAt": "2026-07-03T18:11:25.952Z"
     }
   ],
   "log": [
@@ -9588,7 +9596,16 @@
       "amount": 1,
       "txDate": "2026-07-03",
       "extra": ""
+    },
+    {
+      "ts": "2026-07-03T18:11:25.952Z",
+      "action": "CREATE",
+      "kid": "Kelsey",
+      "desc": "Finding Mom's glasses",
+      "amount": 1,
+      "txDate": "2026-07-03",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-07-03T18:11:15.744Z"
+  "savedAt": "2026-07-03T18:11:25.960Z"
 }
