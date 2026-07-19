@@ -2521,6 +2521,14 @@
       "amount": 1,
       "date": "2026-07-03",
       "createdAt": "2026-07-03T18:11:25.952Z"
+    },
+    {
+      "id": 1784505307109.0818,
+      "kid": "Kenleigh",
+      "desc": "Pink Drop Neo",
+      "amount": -8.99,
+      "date": "2026-07-19",
+      "createdAt": "2026-07-19T23:55:07.109Z"
     }
   ],
   "log": [
@@ -9615,7 +9623,16 @@
       "amount": 163,
       "txDate": "2026-05-29",
       "extra": "Was: \"3.5 lawn mowes + edging\" $163.00 on 2026-05-29"
+    },
+    {
+      "ts": "2026-07-19T23:55:07.109Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "Pink Drop Neo",
+      "amount": -8.99,
+      "txDate": "2026-07-19",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-07-03T18:12:51.069Z"
+  "savedAt": "2026-07-19T23:55:07.113Z"
 }
