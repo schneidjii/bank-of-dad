@@ -2537,6 +2537,14 @@
       "amount": 5,
       "date": "2026-07-22",
       "createdAt": "2026-07-22T12:13:00.326Z"
+    },
+    {
+      "id": 1787961128509.8352,
+      "kid": "Gavin",
+      "desc": "Destroyed Pizza Hut Food",
+      "amount": -41.01,
+      "date": "2026-08-28",
+      "createdAt": "2026-08-28T23:52:08.509Z"
     }
   ],
   "log": [
@@ -9649,7 +9657,16 @@
       "amount": 5,
       "txDate": "2026-07-22",
       "extra": ""
+    },
+    {
+      "ts": "2026-08-28T23:52:08.510Z",
+      "action": "CREATE",
+      "kid": "Gavin",
+      "desc": "Destroyed Pizza Hut Food",
+      "amount": -41.01,
+      "txDate": "2026-08-28",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-07-22T12:13:00.329Z"
+  "savedAt": "2026-08-28T23:52:08.516Z"
 }
