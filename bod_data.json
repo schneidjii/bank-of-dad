@@ -2567,8 +2567,9 @@
       "kid": "Kenleigh",
       "desc": "Lost Tooth",
       "amount": 3,
-      "date": "2026-09-01",
-      "createdAt": "2026-09-01T10:44:09.849Z"
+      "date": "2026-07-29",
+      "createdAt": "2026-09-01T10:44:09.849Z",
+      "editedAt": "2026-09-01T10:44:33.460Z"
     }
   ],
   "log": [
@@ -9717,7 +9718,16 @@
       "amount": 3,
       "txDate": "2026-09-01",
       "extra": ""
+    },
+    {
+      "ts": "2026-09-01T10:44:33.460Z",
+      "action": "EDIT",
+      "kid": "Kenleigh",
+      "desc": "Lost Tooth",
+      "amount": 3,
+      "txDate": "2026-07-29",
+      "extra": "Was: \"Lost Tooth\" $3.00 on 2026-09-01"
     }
   ],
-  "savedAt": "2026-09-01T10:44:09.852Z"
+  "savedAt": "2026-09-01T10:44:33.463Z"
 }
