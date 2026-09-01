@@ -2553,6 +2553,14 @@
       "amount": 3,
       "date": "2026-09-01",
       "createdAt": "2026-09-01T10:11:41.430Z"
+    },
+    {
+      "id": 1788257535235.8745,
+      "kid": "Emery",
+      "desc": "Found cash",
+      "amount": 2,
+      "date": "2026-09-01",
+      "createdAt": "2026-09-01T10:12:15.235Z"
     }
   ],
   "log": [
@@ -9683,7 +9691,16 @@
       "amount": 3,
       "txDate": "2026-09-01",
       "extra": ""
+    },
+    {
+      "ts": "2026-09-01T10:12:15.235Z",
+      "action": "CREATE",
+      "kid": "Emery",
+      "desc": "Found cash",
+      "amount": 2,
+      "txDate": "2026-09-01",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-09-01T10:11:41.432Z"
+  "savedAt": "2026-09-01T10:12:15.239Z"
 }
