@@ -2565,11 +2565,11 @@
     {
       "id": 1788259449849.8396,
       "kid": "Kenleigh",
-      "desc": "Lost Tooth",
+      "desc": "Tooth Fairy (Lost Tooth)",
       "amount": 3,
       "date": "2026-07-29",
       "createdAt": "2026-09-01T10:44:09.849Z",
-      "editedAt": "2026-09-01T10:44:33.460Z"
+      "editedAt": "2026-09-01T10:44:55.149Z"
     }
   ],
   "log": [
@@ -9727,7 +9727,16 @@
       "amount": 3,
       "txDate": "2026-07-29",
       "extra": "Was: \"Lost Tooth\" $3.00 on 2026-09-01"
+    },
+    {
+      "ts": "2026-09-01T10:44:55.149Z",
+      "action": "EDIT",
+      "kid": "Kenleigh",
+      "desc": "Tooth Fairy (Lost Tooth)",
+      "amount": 3,
+      "txDate": "2026-07-29",
+      "extra": "Was: \"Lost Tooth\" $3.00 on 2026-07-29"
     }
   ],
-  "savedAt": "2026-09-01T10:44:33.463Z"
+  "savedAt": "2026-09-01T10:44:55.151Z"
 }
