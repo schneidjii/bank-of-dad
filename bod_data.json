@@ -2545,6 +2545,14 @@
       "amount": -41.01,
       "date": "2026-08-28",
       "createdAt": "2026-08-28T23:52:08.509Z"
+    },
+    {
+      "id": 1788257501429.9521,
+      "kid": "Emery",
+      "desc": "Tooth fairy",
+      "amount": 3,
+      "date": "2026-09-01",
+      "createdAt": "2026-09-01T10:11:41.430Z"
     }
   ],
   "log": [
@@ -9666,7 +9674,16 @@
       "amount": -41.01,
       "txDate": "2026-08-28",
       "extra": ""
+    },
+    {
+      "ts": "2026-09-01T10:11:41.430Z",
+      "action": "CREATE",
+      "kid": "Emery",
+      "desc": "Tooth fairy",
+      "amount": 3,
+      "txDate": "2026-09-01",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-08-28T23:52:08.516Z"
+  "savedAt": "2026-09-01T10:11:41.432Z"
 }
