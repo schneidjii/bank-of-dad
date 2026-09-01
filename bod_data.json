@@ -2561,6 +2561,14 @@
       "amount": 2,
       "date": "2026-09-01",
       "createdAt": "2026-09-01T10:12:15.235Z"
+    },
+    {
+      "id": 1788259449849.8396,
+      "kid": "Kenleigh",
+      "desc": "Lost Tooth",
+      "amount": 3,
+      "date": "2026-09-01",
+      "createdAt": "2026-09-01T10:44:09.849Z"
     }
   ],
   "log": [
@@ -9700,7 +9708,16 @@
       "amount": 2,
       "txDate": "2026-09-01",
       "extra": ""
+    },
+    {
+      "ts": "2026-09-01T10:44:09.849Z",
+      "action": "CREATE",
+      "kid": "Kenleigh",
+      "desc": "Lost Tooth",
+      "amount": 3,
+      "txDate": "2026-09-01",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-09-01T10:12:15.239Z"
+  "savedAt": "2026-09-01T10:44:09.852Z"
 }
