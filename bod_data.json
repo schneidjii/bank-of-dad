@@ -2570,6 +2570,14 @@
       "date": "2026-07-29",
       "createdAt": "2026-09-01T10:44:09.849Z",
       "editedAt": "2026-09-01T10:44:55.149Z"
+    },
+    {
+      "id": 1792106777222.2874,
+      "kid": "Gavin",
+      "desc": "Caught football at night",
+      "amount": 5,
+      "date": "2026-10-15",
+      "createdAt": "2026-10-15T23:26:17.222Z"
     }
   ],
   "log": [
@@ -9736,7 +9744,16 @@
       "amount": 3,
       "txDate": "2026-07-29",
       "extra": "Was: \"Lost Tooth\" $3.00 on 2026-07-29"
+    },
+    {
+      "ts": "2026-10-15T23:26:17.222Z",
+      "action": "CREATE",
+      "kid": "Gavin",
+      "desc": "Caught football at night",
+      "amount": 5,
+      "txDate": "2026-10-15",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-09-01T10:44:55.151Z"
+  "savedAt": "2026-10-15T23:26:17.227Z"
 }
