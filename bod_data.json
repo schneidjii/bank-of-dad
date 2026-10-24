@@ -2578,6 +2578,14 @@
       "amount": 5,
       "date": "2026-10-15",
       "createdAt": "2026-10-15T23:26:17.222Z"
+    },
+    {
+      "id": 1792882801686.2292,
+      "kid": "Emery",
+      "desc": "Birthday from Brady/Caroline",
+      "amount": 20,
+      "date": "2026-10-24",
+      "createdAt": "2026-10-24T23:00:01.686Z"
     }
   ],
   "log": [
@@ -9753,7 +9761,16 @@
       "amount": 5,
       "txDate": "2026-10-15",
       "extra": ""
+    },
+    {
+      "ts": "2026-10-24T23:00:01.686Z",
+      "action": "CREATE",
+      "kid": "Emery",
+      "desc": "Birthday from Brady/Caroline",
+      "amount": 20,
+      "txDate": "2026-10-24",
+      "extra": ""
     }
   ],
-  "savedAt": "2026-10-15T23:26:17.227Z"
+  "savedAt": "2026-10-24T23:00:01.691Z"
 }
