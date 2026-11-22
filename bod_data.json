@@ -2626,14 +2626,6 @@
       "amount": 1,
       "date": "2026-11-21",
       "createdAt": "2026-11-21T02:36:05.142Z"
-    },
-    {
-      "id": 1795387989700.2573,
-      "kid": "Kelsey",
-      "desc": "Low key",
-      "amount": 1,
-      "date": "2026-11-22",
-      "createdAt": "2026-11-22T22:53:09.700Z"
     }
   ],
   "log": [
@@ -9872,7 +9864,16 @@
       "amount": 1,
       "txDate": "2026-11-22",
       "extra": ""
+    },
+    {
+      "ts": "2026-11-22T22:53:17.695Z",
+      "action": "DELETE",
+      "kid": "Kelsey",
+      "desc": "Low key",
+      "amount": 1,
+      "txDate": "2026-11-22",
+      "extra": "Deleted Nov 22, 26 5:53 PM"
     }
   ],
-  "savedAt": "2026-11-22T22:53:09.702Z"
+  "savedAt": "2026-11-22T22:53:17.700Z"
 }
